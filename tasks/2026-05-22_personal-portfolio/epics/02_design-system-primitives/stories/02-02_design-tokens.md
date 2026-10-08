@@ -1,9 +1,20 @@
+---
+id: 02-02
+title: "Design tokens in index.css @theme"
+epic: 02
+status: done
+size: S
+blocked_by: ["01-02"]
+files: ["src/index.css"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-02: Design tokens in index.css @theme
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Declare all shared visual design tokens — colour palette (including the brand

@@ -1,9 +1,20 @@
+---
+id: 08-02
+title: "README + Pages setup docs"
+epic: 08
+status: todo
+size: S
+blocked_by: ["08-01"]
+files: ["README.md"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 08-02: README + Pages setup docs
 
 > **Epic:** Deployment Pipeline
 > **Size:** S
-> **Status:** TODO
-
 ## Description
 
 Write (or extend) `README.md` at the repository root with a complete project introduction, all local development commands, and the full deployment runbook. The README must cover two deployment concerns that are frequently misunderstood: the one-time GitHub Pages source setting that must be applied before the first workflow run, and the base-path decision that determines whether the site is served as a user page (`'/'`) or a project page (`'/<repo>/'`). After this story any contributor — including the owner returning to the project months later — can clone, develop, and deploy without consulting any other documentation.

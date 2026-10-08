@@ -1,9 +1,20 @@
+---
+id: 06-07
+title: "Languages section"
+epic: 06
+status: done
+size: S
+blocked_by: ["04-05", "02-09"]
+files: ["src/components/sections/Languages.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-07: Languages section
 
 > **Epic:** Content Sections
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/Languages.tsx`, the spoken languages section. The

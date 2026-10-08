@@ -1,3 +1,12 @@
+---
+epic: 09
+slug: quality-a11y-perf
+title: "Quality, Accessibility & Performance"
+description: "This epic is the final quality gate for the assembled portfolio site."
+issue:
+pr:
+delivery:
+---
 # Epic 09: Quality, Accessibility & Performance
 
 ## Description
@@ -71,16 +80,6 @@ verification (09-04) are independent and can run in parallel with 09-01/09-02.
 - **Depends on:** Epic 06 story 06-09 (assembled site), Epic 07 story 07-03
   (SEO meta tags), Epic 08 story 08-01 (GitHub Pages deploy / preview URL).
 - **Blocks:** None — this is the final epic.
-
-## Stories
-
-| #   | Story                               | Size | Status |
-| --- | ----------------------------------- | ---- | ------ |
-| 01  | Accessibility pass                  | M    | TODO   |
-| 02  | Responsiveness pass                 | M    | TODO   |
-| 03  | prefers-reduced-motion verification | S    | TODO   |
-| 04  | Privacy verification                | S    | TODO   |
-| 05  | Lighthouse performance & SEO audit  | M    | TODO   |
 
 ## Acceptance Criteria
 

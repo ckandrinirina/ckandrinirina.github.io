@@ -1,9 +1,20 @@
+---
+id: 06-06
+title: "Education section"
+epic: 06
+status: done
+size: S
+blocked_by: ["04-05", "02-09"]
+files: ["src/components/sections/Education.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-06: Education section
 
 > **Epic:** Content Sections
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/Education.tsx`, the education history section. The

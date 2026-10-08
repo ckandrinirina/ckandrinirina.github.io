@@ -1,9 +1,20 @@
+---
+id: 04-05
+title: "LanguageProvider + useLanguage"
+epic: 04
+status: done
+size: M
+blocked_by: ["04-02", "04-03", "04-04"]
+files: ["src/i18n/LanguageProvider.tsx", "src/i18n/useLanguage.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-05: LanguageProvider + useLanguage
 
 > **Epic:** Internationalization & Content Data
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Implement `src/i18n/LanguageProvider.tsx` and `src/i18n/useLanguage.ts` — the runtime heart of the bilingual system. `LanguageProvider` is a React context provider that owns the `locale` state, resolves it from storage or browser preference on first render, keeps `document.documentElement.lang` in sync, and exposes the resolved content object and a `t()` label accessor to all descendants. `useLanguage` is the corresponding context hook that any component calls to access `{ locale, setLocale, content, t }`.

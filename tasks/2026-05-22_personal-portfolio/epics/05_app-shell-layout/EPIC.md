@@ -1,3 +1,12 @@
+---
+epic: 05
+slug: app-shell-layout
+title: "App Shell & Layout"
+description: "This epic assembles the application shell that ties together every provider and layout component built in Epics 02–04."
+issue:
+pr:
+delivery:
+---
 # Epic 05: App Shell & Layout
 
 ## Description
@@ -39,15 +48,6 @@ The epic closes with `App.tsx`, which composes the page shell: `<Header>` + `<ma
 
 - **Depends on:** Epic 02 (hooks/primitives: `useScrollSpy` 02-08, `SocialLinks` 02-10, `Container` 02-01), Epic 03 (ThemeToggle 03-03, `ThemeProvider` 03-01), Epic 04 (LanguageProvider 04-05, LanguageSwitcher 04-06).
 - **Blocks:** Epic 06 (section wiring — all section stories 06-01 through 06-08 depend on the App shell established in 05-04); also blocks 06-09 (final section integration).
-
-## Stories
-
-| #   | Story                    | Size | Status |
-| --- | ------------------------ | ---- | ------ |
-| 01  | main.tsx provider wiring | S    | DONE   |
-| 02  | Header component         | L    | DONE   |
-| 03  | Footer component         | M    | DONE   |
-| 04  | App.tsx page shell       | M    | DONE   |
 
 ## Acceptance Criteria
 

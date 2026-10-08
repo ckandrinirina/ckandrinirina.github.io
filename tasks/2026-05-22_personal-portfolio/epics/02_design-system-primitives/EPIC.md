@@ -1,3 +1,12 @@
+---
+epic: 02
+slug: design-system-primitives
+title: "Design System — UI Primitives & Hooks"
+description: "This epic establishes the reusable, content-agnostic building blocks that all section and layout components consume."
+issue:
+pr:
+delivery:
+---
 # Epic 02: Design System — UI Primitives & Hooks
 
 ## Description
@@ -58,21 +67,6 @@ layout code should be written until the stories here are done and merged.
 
 - **Depends on:** Epic 01 (project scaffold, Vite config, Tailwind v4 + dark variant, Vitest tooling)
 - **Blocks:** Epic 05 (layout shell — Header, Footer), Epic 06 (all section components)
-
-## Stories
-
-| #   | Story                             | Size | Status |
-| --- | --------------------------------- | ---- | ------ |
-| 01  | Utilities & site constants        | S    | DONE   |
-| 02  | Design tokens in index.css @theme | S    | DONE   |
-| 03  | Container component               | S    | DONE   |
-| 04  | Button component + test           | M    | DONE   |
-| 05  | Badge component                   | S    | DONE   |
-| 06  | Card component                    | S    | DONE   |
-| 07  | useReveal hook                    | M    | DONE   |
-| 08  | useScrollSpy hook                 | M    | DONE   |
-| 09  | Section layout wrapper            | M    | DONE   |
-| 10  | SocialLinks component             | S    | DONE   |
 
 ## Acceptance Criteria
 

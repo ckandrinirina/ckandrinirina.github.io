@@ -1,3 +1,8 @@
+---
+slug: app-shell
+design: planned
+---
+
 # App Shell & Interaction Layer
 
 > Feature doc — self-contained. A story for this feature reads THIS file

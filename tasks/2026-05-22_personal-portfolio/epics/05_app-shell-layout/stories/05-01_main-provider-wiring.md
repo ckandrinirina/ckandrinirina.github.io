@@ -1,9 +1,20 @@
+---
+id: 05-01
+title: "main.tsx provider wiring"
+epic: 05
+status: done
+size: S
+blocked_by: ["03-01", "04-05"]
+files: ["src/main.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 05-01: main.tsx provider wiring
 
 > **Epic:** App Shell & Layout
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 `src/main.tsx` is the React entry point. Currently it may only call `ReactDOM.createRoot` with a bare `<App/>`. This story updates that file to mount the full provider stack — `<ThemeProvider><LanguageProvider><App/></LanguageProvider></ThemeProvider>` — using React 19's `createRoot` API. It also ensures `index.css` is imported so Tailwind v4 styles are loaded. After this story, `useTheme()` and `useLanguage()` resolve correctly in every component of the tree, and `ThemeProvider` reconciles with the anti-FOUC inline script that was placed in `index.html` by Epic 03, producing no flash of incorrect theme on hard reload.

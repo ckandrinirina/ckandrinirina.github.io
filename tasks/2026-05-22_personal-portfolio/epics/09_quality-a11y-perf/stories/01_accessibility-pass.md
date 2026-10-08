@@ -1,9 +1,20 @@
+---
+id: 09-01
+title: "Accessibility Pass"
+epic: 09
+status: todo
+size: M
+blocked_by: ["06-09"]
+files: ["src/components/Header.tsx", "src/components/ThemeToggle.tsx", "src/components/LanguageSwitcher.tsx", "src/components/SocialLinks.tsx", "src/components/Section.tsx", "src/sections/Hero.tsx", "src/index.css", "src/components/Button.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 09-01: Accessibility Pass
 
 > **Epic:** Quality, Accessibility & Performance
 > **Size:** M
-> **Status:** TODO
-
 ## Description
 
 Audit the fully assembled site for WCAG 2.1 AA compliance and fix every issue

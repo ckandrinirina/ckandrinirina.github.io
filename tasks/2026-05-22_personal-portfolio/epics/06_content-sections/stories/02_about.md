@@ -1,9 +1,20 @@
+---
+id: 06-02
+title: "About section"
+epic: 06
+status: done
+size: S
+blocked_by: ["04-05", "02-09"]
+files: ["src/components/sections/About.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-02: About section
 
 > **Epic:** Content Sections
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/About.tsx`, the profile narrative section. The

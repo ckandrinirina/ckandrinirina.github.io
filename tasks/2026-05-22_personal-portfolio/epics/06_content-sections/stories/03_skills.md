@@ -1,9 +1,20 @@
+---
+id: 06-03
+title: "Skills section"
+epic: 06
+status: done
+size: M
+blocked_by: ["04-05", "02-05", "02-09"]
+files: ["src/components/sections/Skills.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-03: Skills section
 
 > **Epic:** Content Sections
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/Skills.tsx`, the scannable skills matrix section. The

@@ -1,9 +1,20 @@
+---
+id: 04-08
+title: "DownloadCvButton component"
+epic: 04
+status: done
+size: S
+blocked_by: ["04-05", "02-04"]
+files: ["src/components/ui/DownloadCvButton.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-08: DownloadCvButton component
 
 > **Epic:** Internationalization & Content Data
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/ui/DownloadCvButton.tsx`, a localized anchor component that triggers a PDF download of the CV. The component wraps the existing `Button` component (story 02-04) with `as="a"`, sets the `download` attribute, builds a base-aware `href`, and reads its label from `t('downloadCv')` via `useLanguage()`. The `href` must use `import.meta.env.BASE_URL` so the link resolves correctly regardless of whether Vite's `base` is set to `'/'` (user-page deployment) or a sub-path like `'/ck-portfolio/'` (project-page deployment). The PDF file itself is a separate concern handled in Epic 07 — this component only needs to point at the right path.

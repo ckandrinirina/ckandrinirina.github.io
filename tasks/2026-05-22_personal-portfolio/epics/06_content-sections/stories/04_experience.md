@@ -1,9 +1,20 @@
+---
+id: 06-04
+title: "Experience section"
+epic: 06
+status: done
+size: M
+blocked_by: ["04-05", "02-06", "02-09"]
+files: ["src/components/sections/Experience.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-04: Experience section
 
 > **Epic:** Content Sections
 > **Size:** L
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/Experience.tsx`, the professional experience section.

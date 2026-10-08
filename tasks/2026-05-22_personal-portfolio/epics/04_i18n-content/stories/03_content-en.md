@@ -1,9 +1,20 @@
+---
+id: 04-03
+title: "English content module"
+epic: 04
+status: done
+size: M
+blocked_by: ["04-01"]
+files: ["src/content/en.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-03: English content module
 
 > **Epic:** Internationalization & Content Data
 > **Size:** L
-> **Status:** DONE
-
 ## Description
 
 Author `src/content/en.ts`, the English-locale content module. This file mirrors `src/content/fr.ts` in every structural aspect — same interface, same keys, same array lengths, same ordering — but every user-visible string is idiomatic English. The `PortfolioContent` interface guarantees structural parity at compile time, and the dedicated parity test (story 04-07) verifies equal array lengths at runtime. This story exists because EN/FR parity cannot be assumed; it must be explicitly authored and verified.

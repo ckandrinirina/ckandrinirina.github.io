@@ -1,9 +1,20 @@
+---
+id: 09-04
+title: "Privacy Verification"
+epic: 09
+status: todo
+size: S
+blocked_by: ["06-09"]
+files: ["scripts/check-privacy.sh", "package.json", ".github/workflows/deploy.yml"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 09-04: Privacy Verification
 
 > **Epic:** Quality, Accessibility & Performance
 > **Size:** S
-> **Status:** TODO
-
 ## Description
 
 Verify that the full home street address from Erick's CV is never present in

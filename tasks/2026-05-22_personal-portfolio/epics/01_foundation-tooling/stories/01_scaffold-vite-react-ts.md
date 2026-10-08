@@ -1,9 +1,20 @@
+---
+id: 01-01
+title: "Scaffold Vite + React 19 + TypeScript project"
+epic: 01
+status: done
+size: S
+blocked_by: []
+files: ["package.json", "vite.config.ts", "tsconfig.json", "tsconfig.node.json", "index.html", "src/main.tsx", "src/App.tsx", ".gitignore"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 01-01: Scaffold Vite + React 19 + TypeScript project
 
 > **Epic:** Project Foundation & Tooling
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Run `npm create vite@latest . -- --template react-ts` in the repository root to establish the baseline project files (package.json, vite.config.ts, tsconfig.json, tsconfig.node.json, index.html, src/main.tsx, src/App.tsx), then install all runtime and dev dependencies. The repository already contains a `docs/` directory that must be left entirely intact. This story creates the structural skeleton every other story and epic builds on.

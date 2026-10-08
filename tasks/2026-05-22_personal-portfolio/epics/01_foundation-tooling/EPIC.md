@@ -1,3 +1,12 @@
+---
+epic: 01
+slug: foundation-tooling
+title: "Project Foundation & Tooling"
+description: "This epic establishes every structural prerequisite the rest of the project depends on."
+issue:
+pr:
+delivery:
+---
 # Epic 01: Project Foundation & Tooling
 
 ## Description
@@ -40,16 +49,6 @@ By the time this epic is complete, a developer can clone the repository, run `np
 
 - **Depends on:** None
 - **Blocks:** All subsequent epics (02 through 09) — no story in any other epic may begin before 01-01 is complete.
-
-## Stories
-
-| #   | Story                                           | Size | Status |
-| --- | ----------------------------------------------- | ---- | ------ |
-| 01  | Scaffold Vite + React 19 + TypeScript project   | S    | DONE   |
-| 02  | Configure Tailwind CSS v4                       | S    | DONE   |
-| 03  | Configure ESLint 9 (flat) + Prettier            | S    | DONE   |
-| 04  | Configure Vitest + Testing Library + test setup | M    | DONE   |
-| 05  | Finalize Vite base path & npm scripts           | S    | DONE   |
 
 ## Acceptance Criteria
 

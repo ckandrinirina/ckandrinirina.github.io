@@ -1,9 +1,20 @@
+---
+id: 02-03
+title: "Container component"
+epic: 02
+status: done
+size: S
+blocked_by: ["01-02", "02-01"]
+files: ["src/components/layout/Container.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-03: Container component
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Create `src/components/layout/Container.tsx`, a simple centred max-width wrapper

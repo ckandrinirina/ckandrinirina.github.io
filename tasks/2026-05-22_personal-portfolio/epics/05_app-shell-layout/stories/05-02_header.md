@@ -1,9 +1,20 @@
+---
+id: 05-02
+title: "Header component"
+epic: 05
+status: done
+size: M
+blocked_by: ["02-08", "02-01", "03-03", "04-06"]
+files: ["src/components/layout/Header.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 05-02: Header component
 
 > **Epic:** App Shell & Layout
 > **Size:** L
-> **Status:** DONE
-
 ## Description
 
 Build `src/components/layout/Header.tsx`, the sticky top bar that sits at the top of every viewport. The Header renders a `<header>` landmark containing a `<nav>` landmark with eight anchor links (one per portfolio section). The active section is highlighted in real time by consuming `useScrollSpy` with the ids list sourced from `src/lib/constants.ts`. Clicking any nav link smooth-scrolls to the matching `#section-id` anchor, with a fallback to instant scroll when `prefers-reduced-motion: reduce` is set. On narrow viewports a hamburger button toggles the mobile nav menu open and closed; the menu closes automatically when a link is selected. The Header also hosts the `LanguageSwitcher` and `ThemeToggle` UI controls built in Epics 03–04. All interactive elements are keyboard-accessible with visible focus rings.

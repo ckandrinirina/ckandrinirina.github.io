@@ -1,3 +1,8 @@
+---
+slug: theming
+design: planned
+---
+
 # Theming
 
 > Feature doc — self-contained. A story for this feature reads THIS file

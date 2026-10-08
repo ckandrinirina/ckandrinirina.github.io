@@ -1,9 +1,20 @@
+---
+id: 08-01
+title: "GitHub Actions Pages workflow"
+epic: 08
+status: todo
+size: M
+blocked_by: ["01-05", "06-09"]
+files: [".github/workflows/deploy.yml"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 08-01: GitHub Actions Pages workflow
 
 > **Epic:** Deployment Pipeline
 > **Size:** M
-> **Status:** TODO
-
 ## Description
 
 Create `.github/workflows/deploy.yml` to automate the full build-and-publish cycle for the portfolio. The workflow must run on every push to `main` (and on manual `workflow_dispatch`) and execute two sequential jobs: a `build` job that installs dependencies, compiles the static site, and uploads the Pages artifact; and a `deploy` job that publishes the artifact to GitHub Pages and exposes the live URL in the run summary. A concurrency group prevents overlapping deploys so a rapid second push never produces a partially deployed state.

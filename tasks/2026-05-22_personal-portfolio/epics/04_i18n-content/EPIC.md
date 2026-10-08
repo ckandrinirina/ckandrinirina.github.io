@@ -1,3 +1,12 @@
+---
+epic: 04
+slug: i18n-content
+title: "Internationalization & Content Data"
+description: "This epic defines and populates the entire content and language runtime for the portfolio."
+issue:
+pr:
+delivery:
+---
 # Epic 04: Internationalization & Content Data
 
 ## Description
@@ -44,19 +53,6 @@ Third, the runtime language system is wired: `LanguageProvider` and `useLanguage
 
 - **Depends on:** Epic 01 (project scaffold — TypeScript, Vitest, Testing Library must be present); Story 02-04 (Button component, needed by DownloadCvButton in 04-08).
 - **Blocks:** Epic 05 (Header + shell, needs LanguageProvider and LanguageSwitcher); Epic 06 (all section components consume `useLanguage()` and the content objects).
-
-## Stories
-
-| #   | Story                           | Size | Status |
-| --- | ------------------------------- | ---- | ------ |
-| 01  | Content type definitions        | M    | DONE   |
-| 02  | French content module (default) | L    | DONE   |
-| 03  | English content module          | L    | DONE   |
-| 04  | UI micro-labels map             | S    | DONE   |
-| 05  | LanguageProvider + useLanguage  | M    | DONE   |
-| 06  | LanguageSwitcher + test         | M    | DONE   |
-| 07  | Content parity test             | S    | DONE   |
-| 08  | DownloadCvButton component      | S    | DONE   |
 
 ## Acceptance Criteria
 

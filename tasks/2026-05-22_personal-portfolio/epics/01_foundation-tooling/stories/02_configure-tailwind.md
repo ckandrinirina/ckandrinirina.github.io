@@ -1,9 +1,20 @@
+---
+id: 01-02
+title: "Configure Tailwind CSS v4"
+epic: 01
+status: done
+size: S
+blocked_by: ["01-01"]
+files: ["vite.config.ts", "src/index.css", "package.json"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 01-02: Configure Tailwind CSS v4
 
 > **Epic:** Project Foundation & Tooling
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Install `tailwindcss` and `@tailwindcss/vite`, register the Tailwind plugin in `vite.config.ts` alongside the existing React plugin, and replace `src/index.css` with the Tailwind v4 CSS-first configuration: `@import "tailwindcss"` plus the custom class-based dark variant. This story enables Tailwind utility classes and the dark mode strategy across all future components without requiring any `tailwind.config.js` or PostCSS configuration files.

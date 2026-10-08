@@ -1,9 +1,20 @@
+---
+id: 05-04
+title: "App.tsx page shell"
+epic: 05
+status: done
+size: M
+blocked_by: ["05-02", "05-03"]
+files: ["src/App.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 05-04: App.tsx page shell
 
 > **Epic:** App Shell & Layout
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Update `src/App.tsx` to be the single-page shell that composes the full document structure: `<Header/>` at the top, a `<main>` landmark containing eight ordered section anchor slots, and `<Footer/>` at the bottom. Each section slot is a placeholder element (e.g. a `<div id="section-id"/>` or a stub `<section id="..."/>`) using the exact ids defined in the nav config in `src/lib/constants.ts`. Section components themselves (Hero, About, Skills, etc.) are not implemented here — they are filled in by Epic 06 and the subsequent section epics. This story exists to lock in the document structure, the landmark hierarchy, and the section id order so that `useScrollSpy`, the Header nav links, and future section imports all target the same ids.

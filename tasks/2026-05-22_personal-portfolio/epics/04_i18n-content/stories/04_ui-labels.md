@@ -1,9 +1,20 @@
+---
+id: 04-04
+title: "UI micro-labels map"
+epic: 04
+status: done
+size: S
+blocked_by: ["04-01"]
+files: ["src/i18n/ui.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-04: UI micro-labels map
 
 > **Epic:** Internationalization & Content Data
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Create `src/i18n/ui.ts`, a small typed map of all UI chrome micro-labels — strings that are not part of the portfolio content narrative but are needed to render the site's navigation, buttons, and accessible controls. These include nav item labels for the eight sections, the primary button texts (View projects, Download CV, Contact), the language switcher aria-label, the theme toggle aria-label, and the footer "built with" note. This file is separate from the content modules because these strings belong to the UI shell rather than the portfolio data, and because the `LanguageProvider` exposes them through the `t(key)` function rather than the `content` object.

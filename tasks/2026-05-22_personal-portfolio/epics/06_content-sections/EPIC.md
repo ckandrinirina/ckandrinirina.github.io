@@ -1,3 +1,12 @@
+---
+epic: 06
+slug: content-sections
+title: "Content Sections"
+description: "This epic implements the eight visible content sections that make up the portfolio's single-page body: Hero, About, Skills, Experience, Projects, Education, Languages, and Contact."
+issue:
+pr:
+delivery:
+---
 # Epic 06: Content Sections
 
 ## Description
@@ -59,20 +68,6 @@ French and English, and the way is clear for Epic 08 (GitHub Pages deployment) a
 
 - **Depends on:** Epic 02 (Section 02-09, Badge 02-05, Card 02-06, SocialLinks 02-10), Epic 04 (LanguageProvider 04-05, DownloadCvButton 04-08), Epic 05 (App shell 05-04).
 - **Blocks:** Epic 08 (GitHub Pages deployment), Epic 09 (QA and accessibility review).
-
-## Stories
-
-| #   | Story                                  | Size | Status |
-| --- | -------------------------------------- | ---- | ------ |
-| 01  | Hero section + test                    | M    | DONE   |
-| 02  | About section                          | S    | DONE   |
-| 03  | Skills section                         | M    | DONE   |
-| 04  | Experience section                     | L    | DONE   |
-| 05  | Projects section                       | L    | DONE   |
-| 06  | Education section                      | S    | DONE   |
-| 07  | Languages section                      | S    | DONE   |
-| 08  | Contact section                        | M    | DONE   |
-| 09  | Wire sections into App + scrollspy nav | S    | DONE   |
 
 ## Acceptance Criteria
 

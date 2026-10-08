@@ -1,9 +1,20 @@
+---
+id: 02-10
+title: "SocialLinks component"
+epic: 02
+status: done
+size: S
+blocked_by: ["02-01"]
+files: ["src/components/ui/SocialLinks.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-10: SocialLinks component
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Create `src/components/ui/SocialLinks.tsx` — a compact component that renders

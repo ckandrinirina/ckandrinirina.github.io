@@ -1,3 +1,8 @@
+---
+slug: i18n-content
+design: planned
+---
+
 # Internationalization & Content
 
 > Feature doc — self-contained. A story for this feature reads THIS file
