@@ -2,7 +2,7 @@
 id: 09-01
 title: "Accessibility Pass"
 epic: 09
-status: todo
+status: skip
 size: M
 blocked_by: ["06-09"]
 files: ["src/components/Header.tsx", "src/components/ThemeToggle.tsx", "src/components/LanguageSwitcher.tsx", "src/components/SocialLinks.tsx", "src/components/Section.tsx", "src/sections/Hero.tsx", "src/index.css", "src/components/Button.tsx"]

@@ -2,7 +2,7 @@
 id: 09-04
 title: "Privacy Verification"
 epic: 09
-status: todo
+status: in-progress
 size: S
 blocked_by: ["06-09"]
 files: ["scripts/check-privacy.sh", "package.json", ".github/workflows/deploy.yml"]

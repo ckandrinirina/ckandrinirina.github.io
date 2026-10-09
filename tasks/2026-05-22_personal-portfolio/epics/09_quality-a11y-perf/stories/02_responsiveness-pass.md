@@ -2,7 +2,7 @@
 id: 09-02
 title: "Responsiveness Pass"
 epic: 09
-status: todo
+status: skip
 size: M
 blocked_by: ["06-09"]
 files: ["src/components/Header.tsx", "src/components/Container.tsx", "src/sections/Hero.tsx", "src/sections/Skills.tsx", "src/sections/Experience.tsx", "src/sections/Projects.tsx", "src/sections/Education.tsx", "src/sections/Contact.tsx", "src/components/Footer.tsx"]
