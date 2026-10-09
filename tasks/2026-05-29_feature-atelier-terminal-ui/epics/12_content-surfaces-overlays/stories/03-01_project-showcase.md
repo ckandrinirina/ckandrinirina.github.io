@@ -7,8 +7,8 @@ size: M
 blocked_by: ["10-01", "10-03", "11-02"]
 files: ["src/components/projects/artwork/ProjectArt.tsx", "src/components/projects/artwork/SokaArt.tsx", "src/components/projects/artwork/SokaLiveArt.tsx", "src/components/projects/artwork/LudokaArt.tsx", "src/components/projects/artwork/EerArt.tsx", "src/components/projects/artwork/ShoyoArt.tsx", "src/components/projects/artwork/OcrArt.tsx", "src/components/projects/artwork/HappyArt.tsx", "src/components/projects/artwork/TheseisArt.tsx", "src/components/projects/ProjectCard.tsx", "src/components/projects/ProjectModal.tsx", "src/views/WorkView.tsx", "src/components/projects/*.test.tsx", "src/views/WorkView.test.tsx"]
 issue:
-pr:
-delivery: direct
+pr: 17
+delivery: pr
 prior_status:
 ---
 # Story 03-01: Project showcase — artwork, ProjectCard, ProjectModal, WorkView

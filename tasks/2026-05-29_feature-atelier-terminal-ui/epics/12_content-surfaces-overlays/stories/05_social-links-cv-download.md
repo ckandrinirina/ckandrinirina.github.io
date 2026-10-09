@@ -7,8 +7,8 @@ size: S
 blocked_by: []
 files: [src/content/en.ts, src/content/fr.ts, src/lib/constants.test.ts, src/lib/constants.ts, src/views/ContactView.test.tsx, src/views/ContactView.tsx, src/views/HomeView.test.tsx, src/views/HomeView.tsx]
 issue:
-pr:
-delivery:
+pr: 17
+delivery: pr
 prior_status:
 ---
 

@@ -4,8 +4,8 @@ slug: content-surfaces-overlays
 title: "Content Surfaces & Overlays"
 description: "This epic builds everything the visitor actually sees inside the shell: the six route views, the project showcase (artwork, card, detail modal, and the Work grid), and the two global overlays (command palette and custom cursor)."
 issue:
-pr:
-delivery:
+pr: 17
+delivery: pr
 ---
 # Epic 03: Content Surfaces & Overlays
 
