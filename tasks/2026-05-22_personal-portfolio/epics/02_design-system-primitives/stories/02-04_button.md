@@ -1,9 +1,20 @@
+---
+id: 02-04
+title: "Button component + test"
+epic: 02
+status: done
+size: M
+blocked_by: ["02-01", "01-04"]
+files: ["src/components/ui/Button.tsx", "src/components/ui/Button.test.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-04: Button component + test
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Create `src/components/ui/Button.tsx` — a polymorphic, styled interactive

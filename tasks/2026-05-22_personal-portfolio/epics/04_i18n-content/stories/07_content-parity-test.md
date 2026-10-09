@@ -1,9 +1,20 @@
+---
+id: 04-07
+title: "Content parity test"
+epic: 04
+status: done
+size: S
+blocked_by: ["04-02", "04-03"]
+files: ["src/content/content.test.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-07: Content parity test
 
 > **Epic:** Internationalization & Content Data
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Create `src/content/content.test.ts`, a Vitest test suite that imports both `fr.ts` and `en.ts` and asserts their structural parity. The TypeScript interface guarantees that both objects have the same keys at compile time, but it does not prevent an array in one locale from having more or fewer items than the corresponding array in the other locale — that would be a silent data inconsistency causing mismatched rendering between languages. This test catches those runtime disparities: if a developer adds an experience entry in French but forgets to add the corresponding English entry, the test fails immediately.

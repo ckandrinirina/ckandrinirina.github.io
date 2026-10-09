@@ -1,9 +1,20 @@
+---
+id: 06-09
+title: "Wire sections into App + scrollspy nav"
+epic: 06
+status: done
+size: S
+blocked_by: ["06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "05-04"]
+files: ["src/App.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-09: Wire sections into App + scrollspy nav
 
 > **Epic:** Content Sections
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Update `src/App.tsx` to replace every section placeholder (from Epic 05 story 05-04) with

@@ -1,9 +1,20 @@
+---
+id: 04-06
+title: "LanguageSwitcher + test"
+epic: 04
+status: done
+size: M
+blocked_by: ["04-05"]
+files: ["src/components/ui/LanguageSwitcher.tsx", "src/components/ui/LanguageSwitcher.test.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-06: LanguageSwitcher + test
 
 > **Epic:** Internationalization & Content Data
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/ui/LanguageSwitcher.tsx` — the visible EN/FR toggle control that sits in the Header — and a co-located test file `LanguageSwitcher.test.tsx` that verifies the switching behavior end-to-end. The component calls `useLanguage()` to read the active locale and `setLocale` to update it. It must be accessible (keyboard operable, proper aria-label from `t('languageSwitcher')`), visually indicate which locale is active, and work correctly in both directions (FR → EN and EN → FR).

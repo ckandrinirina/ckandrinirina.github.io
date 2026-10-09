@@ -1,3 +1,12 @@
+---
+epic: 08
+slug: deployment
+title: "Deployment Pipeline"
+description: "This epic automates the end-to-end build and publish cycle for the portfolio."
+issue:
+pr:
+delivery:
+---
 # Epic 08: Deployment Pipeline
 
 ## Description
@@ -37,13 +46,6 @@ Beyond automation, this epic ensures deployment correctness: the `base: '/'` pat
 
 - **Depends on:** Epic 01 story 01-05 (correct `base: '/'` and build scripts), Epic 06 story 06-09 (working app compiles without errors)
 - **Blocks:** Epic 09 story 09-05 (Lighthouse audit runs against the live/preview build published by this epic)
-
-## Stories
-
-| #   | Story                         | Size | Status |
-| --- | ----------------------------- | ---- | ------ |
-| 01  | GitHub Actions Pages workflow | M    | TODO   |
-| 02  | README + Pages setup docs     | S    | TODO   |
 
 ## Acceptance Criteria
 

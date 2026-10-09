@@ -1,9 +1,20 @@
+---
+id: 02-01
+title: "Utilities & site constants"
+epic: 02
+status: done
+size: S
+blocked_by: ["01-01"]
+files: ["src/lib/utils.ts", "src/lib/constants.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-01: Utilities & site constants
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Create the two foundational library modules that every other component and hook

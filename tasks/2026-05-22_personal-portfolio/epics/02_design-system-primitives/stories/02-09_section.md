@@ -1,9 +1,20 @@
+---
+id: 02-09
+title: "Section layout wrapper"
+epic: 02
+status: done
+size: M
+blocked_by: ["02-03", "02-07"]
+files: ["src/components/layout/Section.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-09: Section layout wrapper
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Create `src/components/layout/Section.tsx` — the semantic wrapper used by every

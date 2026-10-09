@@ -1,9 +1,20 @@
+---
+id: 09-03
+title: "prefers-reduced-motion Verification"
+epic: 09
+status: todo
+size: S
+blocked_by: ["06-09"]
+files: ["src/hooks/useReveal.ts", "src/components/Section.tsx", "src/index.css"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 09-03: prefers-reduced-motion Verification
 
 > **Epic:** Quality, Accessibility & Performance
 > **Size:** S
-> **Status:** TODO
-
 ## Description
 
 Verify end-to-end that the site respects the visitor's `prefers-reduced-motion:

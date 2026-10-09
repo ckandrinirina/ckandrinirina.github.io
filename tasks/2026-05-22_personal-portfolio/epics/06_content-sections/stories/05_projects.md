@@ -1,9 +1,20 @@
+---
+id: 06-05
+title: "Projects section"
+epic: 06
+status: done
+size: M
+blocked_by: ["04-05", "02-06", "02-09"]
+files: ["src/components/sections/Projects.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-05: Projects section
 
 > **Epic:** Content Sections
 > **Size:** L
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/Projects.tsx`, the curated project showcase section.

@@ -1,9 +1,20 @@
+---
+id: 01-03
+title: "Configure ESLint 9 (flat) + Prettier"
+epic: 01
+status: done
+size: S
+blocked_by: ["01-01"]
+files: ["eslint.config.js", ".prettierrc", "package.json"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 01-03: Configure ESLint 9 (flat) + Prettier
 
 > **Epic:** Project Foundation & Tooling
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Set up ESLint 9 with a flat `eslint.config.js` combining `@eslint/js` recommended, `typescript-eslint`, `eslint-plugin-react-hooks`, and `eslint-plugin-react-refresh`. Set up Prettier 3 with a `.prettierrc` file that disables semicolons, enables single quotes, and loads `prettier-plugin-tailwindcss` for automatic class sorting. Add the `lint` and `format` npm scripts to `package.json`. Prettier owns all formatting decisions; ESLint must have no stylistic rules that conflict with Prettier.

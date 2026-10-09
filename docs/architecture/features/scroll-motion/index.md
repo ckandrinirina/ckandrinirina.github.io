@@ -1,3 +1,8 @@
+---
+slug: scroll-motion
+design: planned
+---
+
 # Scroll Motion
 
 > Feature doc — self-contained. A story for this feature reads THIS file

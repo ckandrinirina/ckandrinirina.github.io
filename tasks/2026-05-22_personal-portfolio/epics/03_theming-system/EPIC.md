@@ -1,3 +1,12 @@
+---
+epic: 03
+slug: theming-system
+title: "Theming System"
+description: "This epic delivers the full light/dark theming infrastructure the portfolio needs, end to end."
+issue:
+pr:
+delivery:
+---
 # Epic 03: Theming System
 
 ## Description
@@ -38,14 +47,6 @@ The three stories are ordered by dependency: the provider must exist before eith
 
 - **Depends on:** Epic 01 story 01-02 (Tailwind v4 dark variant configured in `src/index.css`); Epic 02 story 02-04 (Button component used as the base for ThemeToggle).
 - **Blocks:** Epic 05 story 05-01 (ThemeProvider wired into `main.tsx`), Epic 05 story 05-02 (Header renders ThemeToggle).
-
-## Stories
-
-| #   | Story                                   | Size | Status |
-| --- | --------------------------------------- | ---- | ------ |
-| 01  | ThemeProvider + useTheme                | M    | DONE   |
-| 02  | Anti-FOUC inline theme bootstrap script | S    | DONE   |
-| 03  | ThemeToggle component + test            | M    | DONE   |
 
 ## Acceptance Criteria
 

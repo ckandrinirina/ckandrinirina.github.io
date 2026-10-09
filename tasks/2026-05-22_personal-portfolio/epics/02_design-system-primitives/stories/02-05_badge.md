@@ -1,9 +1,20 @@
+---
+id: 02-05
+title: "Badge component"
+epic: 02
+status: done
+size: S
+blocked_by: ["01-02", "02-02", "02-01"]
+files: ["src/components/ui/Badge.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-05: Badge component
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Create `src/components/ui/Badge.tsx` — a small, rounded chip component used to

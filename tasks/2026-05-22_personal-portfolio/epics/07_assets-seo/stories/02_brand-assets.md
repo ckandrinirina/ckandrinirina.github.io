@@ -1,9 +1,20 @@
+---
+id: 07-02
+title: "Brand assets — favicon, profile photo, Open Graph image"
+epic: 07
+status: done
+size: S
+blocked_by: ["01-01", "07-01"]
+files: ["public/favicon.svg", "public/profile.jpg", "public/og-image.png", "scripts/check-assets.mjs"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 07-02: Brand assets — favicon, profile photo, Open Graph image
 
 > **Epic:** Assets, SEO & Social Sharing
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Add the three visual brand assets that `index.html` and the portfolio components reference at runtime: `public/favicon.svg` (browser tab icon), `public/profile.jpg` (profile photo sourced from the CV headshot), and `public/og-image.png` (social-share preview card, 1200×630 px). All three files must live in `public/` so Vite copies them verbatim into `dist/` and GitHub Pages serves them at their stable root-relative URLs. Story 07-03 (`index.html` SEO metadata) depends on these files existing before it wires them into `<head>`.

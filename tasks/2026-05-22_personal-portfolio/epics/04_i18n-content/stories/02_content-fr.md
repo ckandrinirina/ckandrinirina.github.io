@@ -1,9 +1,20 @@
+---
+id: 04-02
+title: "French content module (default)"
+epic: 04
+status: done
+size: M
+blocked_by: ["04-01"]
+files: ["src/content/fr.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-02: French content module (default)
 
 > **Epic:** Internationalization & Content Data
 > **Size:** L
-> **Status:** DONE
-
 ## Description
 
 Author `src/content/fr.ts`, the default-locale content module. This file exports a single object that satisfies the `PortfolioContent` interface and contains every piece of portfolio content in French. It is the authoritative source for the site's default experience: French is displayed on first load for any visitor whose browser language is not explicitly set to English, and it is the language the site designer has validated visually. The data is drawn directly from spec §5 and the CV, transcribed faithfully — including all seven employers, their named projects, all eight skill groups, three education rows, spoken-language proficiencies, and contact information limited to city and country.

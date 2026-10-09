@@ -1,3 +1,12 @@
+---
+epic: 07
+slug: assets-seo
+title: "Assets, SEO & Social Sharing"
+description: "This epic provides the static brand assets and document-level metadata that make the portfolio both downloadable and discoverable."
+issue:
+pr:
+delivery:
+---
 # Epic 07: Assets, SEO & Social Sharing
 
 ## Description
@@ -37,14 +46,6 @@ By the end of this epic a shared link to `ckandrinirina.github.io` will display 
 
 - **Depends on:** Epic 01 (scaffold / `public/` directory, `package.json`, `index.html` entry)
 - **Blocks:** Epic 09 (Lighthouse SEO audit — requires valid meta tags, favicon, and OG image)
-
-## Stories
-
-| #   | Story                                                   | Size | Status |
-| --- | ------------------------------------------------------- | ---- | ------ |
-| 01  | CV PDF asset + build presence check                     | S    | DONE   |
-| 02  | Brand assets — favicon, profile photo, Open Graph image | S    | DONE   |
-| 03  | index.html SEO metadata                                 | M    | DONE   |
 
 ## Acceptance Criteria
 

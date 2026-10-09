@@ -1,9 +1,20 @@
+---
+id: 02-08
+title: "useScrollSpy hook"
+epic: 02
+status: done
+size: M
+blocked_by: ["01-01"]
+files: ["src/hooks/useScrollSpy.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-08: useScrollSpy hook
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Create `src/hooks/useScrollSpy.ts` — a custom React hook that accepts an array

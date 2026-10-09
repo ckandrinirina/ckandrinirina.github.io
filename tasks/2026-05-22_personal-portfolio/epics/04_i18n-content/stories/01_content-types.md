@@ -1,9 +1,20 @@
+---
+id: 04-01
+title: "Content type definitions"
+epic: 04
+status: done
+size: M
+blocked_by: ["01-01"]
+files: ["src/content/types.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 04-01: Content type definitions
 
 > **Epic:** Internationalization & Content Data
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Create `src/content/types.ts`, the single TypeScript source of truth for the shape of all bilingual portfolio content. This file exports the `PortfolioContent` interface and every sub-type it depends on. Both `src/content/fr.ts` and `src/content/en.ts` must satisfy this interface via the `satisfies` operator, which means any field missing in one locale is a compile-time error rather than a runtime gap. Because the interface governs parity, its design is the most important decision in Epic 04 — it must cover every content section (hero, about, skills, experience, projects, education, spokenLanguages, contact) without leaking any presentation concern.

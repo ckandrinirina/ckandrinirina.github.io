@@ -1,9 +1,20 @@
+---
+id: 07-03
+title: "index.html SEO metadata"
+epic: 07
+status: done
+size: M
+blocked_by: ["07-02"]
+files: ["index.html"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 07-03: index.html SEO metadata
 
 > **Epic:** Assets, SEO & Social Sharing
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Populate the `<head>` section of `index.html` with the full set of SEO and social-sharing tags so that search engines index the page correctly and a shared link on LinkedIn, Twitter/X, or any messaging app renders a professional preview card. Tags to add include: `<title>`, `<meta name="description">`, Open Graph (`og:title`, `og:description`, `og:image`, `og:type`, `og:url`), Twitter Card (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`), and `<link rel="icon">`. The default `<html lang="fr">` attribute must be set; `LanguageProvider` updates it at runtime when the visitor switches language. The anti-FOUC inline theme script introduced in story 03-02 must remain intact and in its correct position.

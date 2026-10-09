@@ -1,9 +1,20 @@
+---
+id: 05-03
+title: "Footer component"
+epic: 05
+status: done
+size: M
+blocked_by: ["02-10"]
+files: ["src/components/layout/Footer.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 05-03: Footer component
 
 > **Epic:** App Shell & Layout
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Build `src/components/layout/Footer.tsx`, the page-wide footer that sits below the last section. The Footer renders a `<footer>` HTML landmark containing three elements: the `SocialLinks` component (GitHub + LinkedIn icon links built in Epic 02), a dynamic copyright notice whose year is computed at runtime, and a short "built with" note (e.g. "Built with React + Vite"). All text and icon colours must be legible against both the light and dark theme backgrounds using Tailwind `dark:` variants. The Footer has no interactive state of its own and requires no props.

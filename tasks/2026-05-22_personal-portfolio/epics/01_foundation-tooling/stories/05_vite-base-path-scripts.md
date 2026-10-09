@@ -1,9 +1,20 @@
+---
+id: 01-05
+title: "Finalize Vite base path & npm scripts"
+epic: 01
+status: done
+size: S
+blocked_by: ["01-01"]
+files: ["vite.config.ts", "package.json"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 01-05: Finalize Vite base path & npm scripts
 
 > **Epic:** Project Foundation & Tooling
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Set `base: '/'` in `vite.config.ts` to target the GitHub user-page deployment at `ckandrinirina.github.io`, and add an inline comment documenting the project-page alternative (`'/<repo-name>/'`). Ensure all five canonical npm scripts are present in `package.json` with the exact commands specified in `dev-guide.md`: `dev`, `build` (as `tsc -b && vite build`), `preview`, `test`, `lint`, and `format`. Verify the production build emits correct asset URLs and that `npm run preview` serves it without errors.

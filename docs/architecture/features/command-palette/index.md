@@ -1,3 +1,8 @@
+---
+slug: command-palette
+design: planned
+---
+
 # Command Palette (⌘K)
 
 > Feature doc — self-contained. A story for this feature reads THIS file

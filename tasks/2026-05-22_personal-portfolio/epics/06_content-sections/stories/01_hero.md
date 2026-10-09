@@ -1,9 +1,20 @@
+---
+id: 06-01
+title: "Hero section + test"
+epic: 06
+status: done
+size: M
+blocked_by: ["04-05", "04-08", "02-10"]
+files: ["src/components/sections/Hero.tsx", "src/components/sections/Hero.test.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-01: Hero section + test
 
 > **Epic:** Content Sections
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/Hero.tsx`, the first and most prominent section of the

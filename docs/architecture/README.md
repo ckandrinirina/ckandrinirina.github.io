@@ -1,7 +1,7 @@
 # Architecture Documentation — Erick Andrinirina Portfolio
 
 Feature-scoped architecture documentation for the personal developer portfolio.
-Source-of-truth specification: [`../specs/2026-05-22_personal-portfolio/pre-spec.md`](../specs/2026-05-22_personal-portfolio/pre-spec.md).
+Source-of-truth specification: [`../specs/2026-05-22_personal-portfolio/spec.md`](../specs/2026-05-22_personal-portfolio/spec.md).
 
 **Project:** A bilingual (EN/FR), 4-palette, single-page personal portfolio for Erick
 Andrinirina, built as a static site and deployed to GitHub Pages. The live UI is the
@@ -19,7 +19,6 @@ These describe the whole system and are read on demand, not per story.
 | [\_shared.md](_shared.md)                  | Cross-cutting infra: providers, UI primitives, a11y, conventions |
 | [configuration.md](configuration.md)       | Config files, environment variables                              |
 | [dev-guide.md](dev-guide.md)               | Prerequisites, setup, build, and run instructions                |
-| [DESIGN_LEDGER.md](DESIGN_LEDGER.md)       | Design → plan bridge: what's been designed and planned           |
 
 ## Feature Documents
 
@@ -27,15 +26,28 @@ Each feature owns a self-contained slice (its components, APIs, data, and flows)
 `build`/`fix` story reads only its feature doc (+ `folder-structure.md`, + `_shared.md`
 when noted) — never the whole architecture.
 
-| Feature                        | Document                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------ |
-| Theming                        | [features/theming/index.md](features/theming/index.md)                   |
-| Internationalization & Content | [features/i18n-content/index.md](features/i18n-content/index.md)         |
-| App Shell & Interaction        | [features/app-shell/index.md](features/app-shell/index.md)               |
-| Content Views                  | [features/content-views/index.md](features/content-views/index.md)       |
-| Command Palette (⌘K)           | [features/command-palette/index.md](features/command-palette/index.md)   |
-| Project Showcase               | [features/project-showcase/index.md](features/project-showcase/index.md) |
-| Scroll Motion                  | [features/scroll-motion/index.md](features/scroll-motion/index.md)       |
+| Feature                                        | Document                                                                                               |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Theming                                        | [features/theming/index.md](features/theming/index.md)                                                 |
+| Internationalization & Content                 | [features/i18n-content/index.md](features/i18n-content/index.md)                                       |
+| App Shell & Interaction                        | [features/app-shell/index.md](features/app-shell/index.md)                                             |
+| Content Views                                  | [features/content-views/index.md](features/content-views/index.md)                                     |
+| Command Palette (⌘K)                           | [features/command-palette/index.md](features/command-palette/index.md)                                 |
+| Project Showcase                               | [features/project-showcase/index.md](features/project-showcase/index.md)                               |
+| Scroll Motion                                  | [features/scroll-motion/index.md](features/scroll-motion/index.md)                                     |
+| Foundation — Tokens, Theme & Content _(stub)_  | [features/foundation-tokens-theme-content/index.md](features/foundation-tokens-theme-content/index.md) |
+| Content Surfaces & Overlays _(stub)_           | [features/content-surfaces-overlays/index.md](features/content-surfaces-overlays/index.md)             |
+| Integration & QA _(stub)_                      | [features/integration-qa/index.md](features/integration-qa/index.md)                                   |
+| Project Foundation & Tooling _(stub)_          | [features/foundation-tooling/index.md](features/foundation-tooling/index.md)                           |
+| Design System — UI Primitives & Hooks _(stub)_ | [features/design-system-primitives/index.md](features/design-system-primitives/index.md)               |
+| Theming System _(stub)_                        | [features/theming-system/index.md](features/theming-system/index.md)                                   |
+| App Shell & Layout _(stub)_                    | [features/app-shell-layout/index.md](features/app-shell-layout/index.md)                               |
+| Content Sections _(stub)_                      | [features/content-sections/index.md](features/content-sections/index.md)                               |
+| Assets, SEO & Social Sharing _(stub)_          | [features/assets-seo/index.md](features/assets-seo/index.md)                                           |
+| Deployment Pipeline _(stub)_                   | [features/deployment/index.md](features/deployment/index.md)                                           |
+| Quality, Accessibility & Performance _(stub)_  | [features/quality-a11y-perf/index.md](features/quality-a11y-perf/index.md)                             |
+
+Rows marked _(stub)_ were scaffolded by `/ck-code:design sync` so every epic routes to a doc; they carry no technical detail yet.
 
 > **Not applicable:** `api-contracts` (no backend; direct links only) and
 > `database-schema` (no database; content is static typed data).
@@ -53,7 +65,7 @@ when noted) — never the whole architecture.
 
 ## Source
 
-- **Original spec:** [`../specs/2026-05-22_personal-portfolio/pre-spec.md`](../specs/2026-05-22_personal-portfolio/pre-spec.md)
+- **Original spec:** [`../specs/2026-05-22_personal-portfolio/spec.md`](../specs/2026-05-22_personal-portfolio/spec.md)
 - **Live design source of truth:** the Atelier Terminal mockup (visuals are verbatim).
 - **Gaps remaining:** None at the architecture level.
 

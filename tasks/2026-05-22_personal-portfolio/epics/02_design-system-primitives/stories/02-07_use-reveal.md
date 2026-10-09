@@ -1,9 +1,20 @@
+---
+id: 02-07
+title: "useReveal hook"
+epic: 02
+status: done
+size: M
+blocked_by: ["01-01"]
+files: ["src/hooks/useReveal.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 02-07: useReveal hook
 
 > **Epic:** Design System — UI Primitives & Hooks
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Create `src/hooks/useReveal.ts` — a custom React hook that uses

@@ -1,0 +1,17 @@
+{
+  "enabledPlugins": {
+    "ck-code@ck-marketplace": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/ck-code-required.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

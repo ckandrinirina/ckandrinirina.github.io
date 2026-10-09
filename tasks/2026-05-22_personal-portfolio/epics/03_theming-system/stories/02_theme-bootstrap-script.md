@@ -1,9 +1,20 @@
+---
+id: 03-02
+title: "Anti-FOUC inline theme bootstrap script"
+epic: 03
+status: done
+size: S
+blocked_by: ["03-01"]
+files: ["index.html"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 03-02: Anti-FOUC inline theme bootstrap script
 
 > **Epic:** Theming System
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Add a small synchronous inline `<script>` in the `<head>` of `index.html` that reads `localStorage['theme']` (or falls back to `prefers-color-scheme`) and adds the `dark` class to `<html>` before any CSS or React code executes. Without this script, users who prefer dark mode experience a brief flash of the light theme (FOUC — Flash Of Unstyled/Incorrect Content) on every page load because React's `ThemeProvider` only runs after the JavaScript bundle is parsed and executed.

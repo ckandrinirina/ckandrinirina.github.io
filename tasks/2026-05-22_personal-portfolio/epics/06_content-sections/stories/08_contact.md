@@ -1,9 +1,20 @@
+---
+id: 06-08
+title: "Contact section"
+epic: 06
+status: done
+size: M
+blocked_by: ["04-05", "02-10"]
+files: ["src/components/sections/Contact.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 06-08: Contact section
 
 > **Epic:** Content Sections
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Implement `src/components/sections/Contact.tsx`, the contact section. Per the key design

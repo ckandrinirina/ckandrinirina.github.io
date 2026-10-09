@@ -1,9 +1,20 @@
+---
+id: 07-01
+title: "CV PDF asset + build presence check"
+epic: 07
+status: done
+size: S
+blocked_by: ["01-01"]
+files: ["public/cv/erick-andrinirina-cv.pdf", "scripts/check-assets.mjs", "package.json"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 07-01: CV PDF asset + build presence check
 
 > **Epic:** Assets, SEO & Social Sharing
 > **Size:** S
-> **Status:** DONE
-
 ## Description
 
 Place the downloadable CV at `public/cv/erick-andrinirina-cv.pdf` by copying and renaming the existing French CV from `docs/CV_ANDRINIRINA_ERICK_FULLSTACK.pdf`. Add a lightweight build-time presence check (a prebuild npm script) so that a missing PDF causes the build to fail with a descriptive error rather than silently shipping a 404 download link. The `DownloadCvButton` component (story 04-08) references this asset via `import.meta.env.BASE_URL + 'cv/erick-andrinirina-cv.pdf'`, so the path must be stable.

@@ -1,3 +1,8 @@
+---
+slug: content-views
+design: planned
+---
+
 # Content Views
 
 > Feature doc — self-contained. A story for this feature reads THIS file

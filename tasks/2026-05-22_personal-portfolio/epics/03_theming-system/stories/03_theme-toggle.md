@@ -1,9 +1,20 @@
+---
+id: 03-03
+title: "ThemeToggle component + test"
+epic: 03
+status: done
+size: M
+blocked_by: ["03-01", "02-04"]
+files: ["src/components/ui/ThemeToggle.tsx", "src/components/ui/ThemeToggle.test.tsx"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 03-03: ThemeToggle component + test
 
 > **Epic:** Theming System
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Build the `ThemeToggle` UI component — the button a visitor clicks to switch between light and dark modes. The component reads current theme state via `useTheme()` and calls `toggle()` on click. It renders a contextually appropriate icon (sun for light, moon for dark) and a screen-reader-friendly label, and sets `aria-pressed` to reflect the active theme. A companion test file verifies DOM effects and `localStorage` persistence end-to-end.

@@ -1,9 +1,20 @@
+---
+id: 03-01
+title: "ThemeProvider + useTheme"
+epic: 03
+status: done
+size: M
+blocked_by: ["01-02"]
+files: ["src/theme/ThemeProvider.tsx", "src/theme/useTheme.ts"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 03-01: ThemeProvider + useTheme
 
 > **Epic:** Theming System
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Create the React context layer that owns the application's light/dark theme state. `ThemeProvider` wraps the component tree, initialises theme from `localStorage['theme']` (falling back to `prefers-color-scheme`, then `'light'`), synchronises the `dark` class on `document.documentElement` on every state change, and persists the chosen value back to `localStorage`. `useTheme` is the public hook that any component uses to read or update the theme.

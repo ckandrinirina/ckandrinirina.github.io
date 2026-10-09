@@ -1,9 +1,20 @@
+---
+id: 01-04
+title: "Configure Vitest + Testing Library + test setup"
+epic: 01
+status: done
+size: M
+blocked_by: ["01-01", "01-02"]
+files: ["vite.config.ts", "src/test/setup.ts", "src/test/setup.test.ts", "tsconfig.json", "package.json"]
+issue:
+pr:
+delivery:
+prior_status:
+---
 # Story 01-04: Configure Vitest + Testing Library + test setup
 
 > **Epic:** Project Foundation & Tooling
 > **Size:** M
-> **Status:** DONE
-
 ## Description
 
 Install Vitest 3, `@testing-library/react`, `@testing-library/jest-dom`, and `jsdom`. Configure Vitest inside `vite.config.ts` (or a dedicated `vitest.config.ts`) with `environment: 'jsdom'`, `globals: true`, and `setupFiles: './src/test/setup.ts'`. Create `src/test/setup.ts` that imports `@testing-library/jest-dom` to register its matchers. Update `tsconfig.json` to include `"vitest/globals"` and `"@testing-library/jest-dom"` in `compilerOptions.types`. Add the `test` npm script. Write a trivial smoke test to verify the full pipeline passes.
