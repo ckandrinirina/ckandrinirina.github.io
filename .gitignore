@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Source CVs carry the full home address — keep them out of the public repo
+docs/*.pdf

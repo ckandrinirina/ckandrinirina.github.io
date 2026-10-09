@@ -2,13 +2,13 @@
 id: 09-03
 title: "prefers-reduced-motion Verification"
 epic: 09
-status: todo
+status: skip
 size: S
 blocked_by: ["06-09"]
 files: ["src/hooks/useReveal.ts", "src/components/Section.tsx", "src/index.css"]
 issue:
-pr:
-delivery:
+pr: 22
+delivery: pr
 prior_status:
 ---
 # Story 09-03: prefers-reduced-motion Verification

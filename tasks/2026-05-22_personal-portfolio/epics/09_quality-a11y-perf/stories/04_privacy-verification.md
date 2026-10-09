@@ -2,13 +2,13 @@
 id: 09-04
 title: "Privacy Verification"
 epic: 09
-status: todo
+status: done
 size: S
 blocked_by: ["06-09"]
-files: ["scripts/check-privacy.sh", "package.json", ".github/workflows/deploy.yml"]
+files: [.github/workflows/deploy.yml, .gitignore, README.md, docs/CV_ANDRINIRINA_ERICK_FULLSTACK.pdf, package.json, scripts/check-privacy.mjs, scripts/check-privacy.test.mjs, src/test/deploy-workflow.test.ts]
 issue:
-pr:
-delivery:
+pr: 22
+delivery: pr
 prior_status:
 ---
 # Story 09-04: Privacy Verification
@@ -30,29 +30,29 @@ accidentally re-introduced.
 
 ## Acceptance Criteria
 
-- [ ] A full-text search of every file in `dist/` (HTML, JS chunks, CSS,
+- [x] A full-text search of every file in `dist/` (HTML, JS chunks, CSS,
       inlined SVGs, any JSON assets) returns no matches for the street-address
       fragments from the CV (specific fragment list defined in the script based on
       the actual address known to the developer — not stored in this file per the
       privacy policy).
-- [ ] The location text visible on the page is exactly "Antananarivo, Madagascar"
+- [x] The location text visible on the page is exactly "Antananarivo, Madagascar"
       (city and country only) in both French and English locales — not a street
       name, district, postal code, or other sub-city detail.
-- [ ] The email address (`ckandrinirina@gmail.com`) and WhatsApp number
+- [x] The email address (`ckandrinirina@gmail.com`) and WhatsApp number
       (`+261385096664` or equivalent formatted form) are present in the built
       output — confirming those intentionally public details are not accidentally
       stripped.
-- [ ] A script at `scripts/check-privacy.sh` (or equivalent `scripts/check-privacy.js`)
+- [x] A script at `scripts/check-privacy.sh` (or equivalent `scripts/check-privacy.js`)
       accepts a path argument (defaulting to `./dist`) and:
   - Exits `0` if no address fragments are found.
   - Exits `1` and prints the matching file(s) and line(s) if any fragment is
     found.
-- [ ] `package.json` includes a `check:privacy` script that runs the guard
+- [x] `package.json` includes a `check:privacy` script that runs the guard
       against `./dist`.
-- [ ] The GitHub Actions deploy workflow runs `npm run check:privacy` after
+- [x] The GitHub Actions deploy workflow runs `npm run check:privacy` after
       `npm run build` and before uploading the Pages artifact, so a leak blocks
       the deploy.
-- [ ] Manual check noted: if a CV PDF is present at `public/cv/`, the developer
+- [x] Manual check noted: if a CV PDF is present at `public/cv/`, the developer
       has manually confirmed that the PDF's embedded text metadata does not contain
       the street address (this is a one-time human check and does not need to be
       automated, but the result should be noted in a comment in the workflow or
@@ -118,3 +118,12 @@ accidentally re-introduced.
   Privacy & confidentiality rules; `docs/architecture/overview.md`
   §Non-functional requirements (Privacy); `docs/architecture/dev-guide.md`
   §Definition of done
+
+## Implementation Summary
+
+- Guard is `scripts/check-privacy.mjs` (Node, same style as `check-assets.mjs`), run by `npm run check:privacy` against `./dist`. Exit 0 clean, 1 violation or missing public contact, 2 when the target dir is absent.
+- Deviation from the story text: the repository is public, so the real street-address fragments are not stored in the script. They come from `PRIVACY_FRAGMENTS` (`;`-separated, for a CI secret) and the gitignored `scripts/privacy-fragments.local`. Generic patterns (lot number, `NNN Antananarivo`) are built in. Fragments are reported by index, never printed. Decision: the user approved this secret approach and added the `PRIVACY_FRAGMENTS` Actions secret.
+- Verified on the current build: `dist/` has no address fragment; email and `261385096664` are present; JSON-LD, noscript and sitemap carry only Antananarivo / MG; location content is exactly `Antananarivo, Madagascar` in fr and en. `vite.config.ts` has no `build.sourcemap`, and `.map` files are scanned anyway.
+- Manual PDF check done on `public/cv/erick-andrinirina-cv.pdf` (2 pages): only the city and country appear; metadata is the title. Noted in the script header.
+- CI: the deploy workflow's build job runs `npm run check:privacy` (with `PRIVACY_FRAGMENTS` from the Actions secret) after `npm run build` and before `actions/upload-pages-artifact`, so a leak blocks the deploy. Covered by `src/test/deploy-workflow.test.ts`.
+- Pre-existing finding: the source CV under `docs/` showed the full street address; it is no longer tracked (`df6ce88`), though it remains in git history.

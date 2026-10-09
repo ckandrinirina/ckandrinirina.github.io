@@ -2,13 +2,13 @@
 id: 09-05
 title: "Lighthouse Performance & SEO Audit"
 epic: 09
-status: todo
+status: skip
 size: M
 blocked_by: ["09-01", "09-02", "07-03", "08-01"]
 files: ["public/og-image.jpg", ".webp", "vite.config.ts", "docs/audits/lighthouse-YYYY-MM-DD.json", "src/sections/Hero.tsx"]
 issue:
-pr:
-delivery:
+pr: 22
+delivery: pr
 prior_status:
 ---
 # Story 09-05: Lighthouse Performance & SEO Audit
