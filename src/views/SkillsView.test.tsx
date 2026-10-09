@@ -8,7 +8,7 @@
  * - Revealable items carry .skill-card class
  */
 
-import { describe, it, expect, vi, afterEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { LanguageProvider } from '../i18n/LanguageProvider'
 import SkillsView from './SkillsView'
@@ -123,7 +123,10 @@ describe('SkillsView — scroll-reveal classes', () => {
 })
 
 describe('SkillsView — scroll-driven tool counts', () => {
-  const realMatchMedia = window.matchMedia
+  let realMatchMedia: typeof window.matchMedia
+  beforeEach(() => {
+    realMatchMedia = window.matchMedia
+  })
   afterEach(() => {
     vi.stubGlobal('matchMedia', realMatchMedia)
   })

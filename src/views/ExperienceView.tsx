@@ -52,7 +52,7 @@ export default function ExperienceView() {
   return (
     <div className="view-inner">
       <p className="eyebrow">{t('eyebrowExperience')}</p>
-      <h2 className="section-title">
+      <h2 className="section-title reveal" data-reveal="blur">
         {t('experienceTitleLead')}
         <span className="mark">{t('experienceTitleMark')}</span>
         {t('experienceTitleTail')}
