@@ -28,14 +28,15 @@ npm run dev     # start the dev server with HMR at http://localhost:5173
 
 ### npm scripts
 
-| Script            | Command                | What it does                                                    |
-| ----------------- | ---------------------- | --------------------------------------------------------------- |
-| `npm run dev`     | `vite`                 | Dev server with hot module replacement                          |
-| `npm run build`   | `tsc -b && vite build` | Type-check, then produce the static site in `dist/`             |
-| `npm run preview` | `vite preview`         | Serve `dist/` locally to verify the production build            |
-| `npm run test`    | `vitest`               | Run the test suite in watch mode (`npm run test -- --run` once) |
-| `npm run lint`    | `eslint .`             | Lint the whole project                                          |
-| `npm run format`  | `prettier --write .`   | Format every file with Prettier                                 |
+| Script                  | Command                                 | What it does                                                    |
+| ----------------------- | --------------------------------------- | --------------------------------------------------------------- |
+| `npm run dev`           | `vite`                                  | Dev server with hot module replacement                          |
+| `npm run build`         | `tsc -b && vite build`                  | Type-check, then produce the static site in `dist/`             |
+| `npm run preview`       | `vite preview`                          | Serve `dist/` locally to verify the production build            |
+| `npm run test`          | `vitest`                                | Run the test suite in watch mode (`npm run test -- --run` once) |
+| `npm run lint`          | `eslint .`                              | Lint the whole project                                          |
+| `npm run format`        | `prettier --write .`                    | Format every file with Prettier                                 |
+| `npm run check:privacy` | `node scripts/check-privacy.mjs ./dist` | Scan `dist/` for address leaks; needs a prior `npm run build`   |
 
 `npm run build` is preceded by a `prebuild` hook (`node scripts/check-assets.mjs`)
 that verifies the required `public/` assets exist before building.
@@ -67,7 +68,10 @@ Pushing to `main` runs `.github/workflows/deploy.yml`, which:
 
 1. checks out the code and installs Node 20 with the npm cache,
 2. runs `npm ci` then `npm run build` (type-check + Vite build to `dist/`),
-3. uploads `dist/` as the Pages artifact and publishes it with
+3. runs `npm run check:privacy` on `dist/`, which reads the `PRIVACY_FRAGMENTS`
+   Actions secret (or `scripts/privacy-fragments.local` when run locally), so a
+   leak fails the deploy before anything is uploaded,
+4. uploads `dist/` as the Pages artifact and publishes it with
    `actions/deploy-pages`.
 
 The workflow can also be started by hand from the **Actions** tab
