@@ -2,7 +2,7 @@
 id: 13-03
 title: "Lighthouse performance & SEO audit"
 epic: 13
-status: todo
+status: in-progress
 size: M
 blocked_by: ["13-02"]
 files: ["index.html", "src/*", "vite.config.ts"]
