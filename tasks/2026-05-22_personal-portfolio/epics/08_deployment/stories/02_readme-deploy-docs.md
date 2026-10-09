@@ -7,8 +7,8 @@ size: S
 blocked_by: ["08-01"]
 files: [README.md, src/test/readme.test.ts]
 issue:
-pr:
-delivery:
+pr: 21
+delivery: pr
 prior_status:
 ---
 # Story 08-02: README + Pages setup docs

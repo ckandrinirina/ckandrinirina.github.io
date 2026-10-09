@@ -7,8 +7,8 @@ size: M
 blocked_by: ["01-05", "06-09"]
 files: [.github/workflows/deploy.yml, package-lock.json, package.json, src/test/deploy-workflow.test.ts]
 issue:
-pr:
-delivery:
+pr: 21
+delivery: pr
 prior_status:
 ---
 # Story 08-01: GitHub Actions Pages workflow
