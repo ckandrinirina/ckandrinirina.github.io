@@ -1,9 +1,9 @@
 // Tests for the new Atelier project dataset (`src/content/projects.ts`).
 //
-// `projects.ts` is the standalone, locale-independent source of the 8 featured
+// `projects.ts` is the standalone, locale-independent source of the 9 featured
 // works rendered by the Work view and the project detail modal. It is typed by
 // the `Project` interface in `types.ts`. This suite locks the shape the design
-// doc specifies: 8 entries, `num` "01"…"08", the 8-id union, and a populated
+// doc specifies: 9 entries, `num` "01"…"09", the 9-id union, and a populated
 // `detail` block on every entry.
 import { describe, expect, it } from 'vitest'
 import { projects, localizeProjects } from './projects'
@@ -13,6 +13,7 @@ const EXPECTED_IDS: ProjectId[] = [
   'soka',
   'soka-live',
   'ludoka',
+  'bmoi-intranet',
   'eer',
   'shoyo',
   'ocr',
@@ -21,19 +22,19 @@ const EXPECTED_IDS: ProjectId[] = [
 ]
 
 describe('projects dataset', () => {
-  it('exports exactly 8 entries', () => {
-    expect(projects).toHaveLength(8)
+  it('exports exactly 9 entries', () => {
+    expect(projects).toHaveLength(9)
   })
 
   it('covers every project id in the union, with no duplicates', () => {
     const ids = projects.map((p) => p.id)
-    expect(new Set(ids).size).toBe(8)
+    expect(new Set(ids).size).toBe(9)
     expect([...ids].sort()).toEqual([...EXPECTED_IDS].sort())
   })
 
-  it('numbers entries "01" through "08" in order', () => {
+  it('numbers entries "01" through "09" in order', () => {
     const nums = projects.map((p) => p.num)
-    expect(nums).toEqual(['01', '02', '03', '04', '05', '06', '07', '08'])
+    expect(nums).toEqual(['01', '02', '03', '04', '05', '06', '07', '08', '09'])
   })
 
   it('every entry carries the required scalar fields', () => {
@@ -103,9 +104,9 @@ describe('localizeProjects — per-locale overlay', () => {
     })
   })
 
-  it('provides non-empty French copy for all 8 projects', () => {
+  it('provides non-empty French copy for all 9 projects', () => {
     const fr = localizeProjects('fr')
-    expect(fr).toHaveLength(8)
+    expect(fr).toHaveLength(9)
     fr.forEach((p) => {
       expect(p.desc.length).toBeGreaterThan(0)
       expect(p.category.length).toBeGreaterThan(0)

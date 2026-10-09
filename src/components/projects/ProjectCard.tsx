@@ -22,7 +22,7 @@
 
 import { useLanguage } from '../../i18n/useLanguage'
 import type { Project } from '../../content/types'
-import ProjectArt from './artwork/ProjectArt'
+import ProjectMedia from './ProjectMedia'
 
 export interface ProjectCardProps {
   project: Project
@@ -60,7 +60,7 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
       <div className="art">
         <div className="art-tag">{project.category}</div>
         <div className="art-year">{project.year}</div>
-        <ProjectArt id={project.id} />
+        <ProjectMedia project={project} />
       </div>
 
       <div className="body">

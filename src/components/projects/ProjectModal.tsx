@@ -24,7 +24,7 @@
 import { useEffect, useRef, type RefObject } from 'react'
 import { useLanguage } from '../../i18n/useLanguage'
 import type { Project } from '../../content/types'
-import ProjectArt from './artwork/ProjectArt'
+import ProjectMedia from './ProjectMedia'
 
 export interface ProjectModalProps {
   /** The project to show, or null when the modal is closed. */
@@ -100,7 +100,7 @@ export default function ProjectModal({
   if (!project) return null
 
   const { detail } = project
-  const stackTokens = detail.stack.split(/ · | /).filter((s) => s.trim())
+  const stackTokens = detail.stack.split(' · ').filter((s) => s.trim())
 
   return (
     <div
@@ -129,7 +129,7 @@ export default function ProjectModal({
         </button>
 
         <div className="art">
-          <ProjectArt id={project.id} />
+          <ProjectMedia project={project} />
         </div>
 
         <div className="modal-body">

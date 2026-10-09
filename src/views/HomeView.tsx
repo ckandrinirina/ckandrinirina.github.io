@@ -102,8 +102,8 @@ const HERO: Record<'en' | 'fr', HeroContent> = {
     nowBody: (
       <>
         <strong>SOKA · Ludoka</strong> — a points economy where you can{' '}
-        <em>buy, play, earn, spend</em> in one wallet. USDC + an internal point
-        system, realtime everywhere.
+        <em>buy, play, earn, spend</em> in one wallet. USDC, MVola mobile money
+        and SOKA points, realtime everywhere.
       </>
     ),
     nowMetaLabel: 'YAS Madagascar',
@@ -146,7 +146,7 @@ const HERO: Record<'en' | 'fr', HeroContent> = {
       <>
         <strong>SOKA · Ludoka</strong> — une économie de points où vous pouvez{' '}
         <em>acheter, jouer, gagner, dépenser</em> dans un seul portefeuille.
-        USDC + un système de points interne, en temps réel partout.
+        USDC, mobile money MVola et points SOKA, en temps réel partout.
       </>
     ),
     nowMetaLabel: 'YAS Madagascar',

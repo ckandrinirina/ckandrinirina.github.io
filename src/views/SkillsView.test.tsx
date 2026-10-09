@@ -109,7 +109,7 @@ describe('SkillsView — .skill-card content', () => {
 
   it('renders lead technologies in skill pills', () => {
     renderSkills()
-    expect(screen.getByText('React 18')).toBeInTheDocument()
+    expect(screen.getByText('React 19')).toBeInTheDocument()
     expect(screen.getByText('Node.js')).toBeInTheDocument()
   })
 })

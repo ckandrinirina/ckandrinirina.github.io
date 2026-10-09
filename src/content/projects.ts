@@ -6,8 +6,12 @@
 // (`desc`) and the `detail` copy are written in English. The French copy lives
 // in `projects.fr.ts` and is merged over this baseline by `localizeProjects`.
 //
-// Ordering is the showcase order — `num` "01"…"08" follows the array index.
-// Copy is a verbatim port of the "Atelier Terminal" reference (app.jsx PROJECTS).
+// Ordering is the showcase order — `num` "01"…"09" follows the array index.
+// Copy started as a port of the "Atelier Terminal" reference (app.jsx PROJECTS)
+// and is kept in sync with the CV (public/cv/erick-andrinirina-cv.pdf).
+//
+// Screenshots are not referenced here: a file named `<id>.webp|png|jpg` in
+// `src/assets/projects/` is picked up by `ProjectMedia` (SVG art otherwise).
 import type { Project } from './types'
 import { projectsCopyFr } from './projects.fr'
 
@@ -20,16 +24,16 @@ export const projects: Project[] = [
     role: 'Lead Fullstack',
     client: 'YAS Madagascar',
     category: 'Platform · Web3',
-    link: '#',
+    link: 'https://www.soka.club/',
     repo: null,
-    desc: 'Multifunctional digital platform — ticketing, online store and interactive mini-games. USDC payments and a native SOKA points wallet, glued together by realtime infrastructure.',
-    tags: ['Next.js 14', 'NestJS', 'Prisma', 'Web3Auth', 'PostgreSQL', 'Ably'],
+    desc: 'Multifunctional digital platform — event ticketing, online store and interactive mini-games. USDC and MVola mobile-money payments, SOKA points to earn and spend, glued together by realtime infrastructure.',
+    tags: ['Next.js 14', 'NestJS', 'Prisma', 'Web3Auth', 'MVola', 'Ably'],
     detail: {
       role: 'Architecture, payments rail, points economy, realtime store and leaderboard.',
       impact:
         'An end-to-end engagement loop — buy, play, earn, spend. Sub-second realtime sync across leaderboards, store and games. Built for an audience that shouldn\'t have to think about "blockchain".',
       stack:
-        'Next.js 14 · Redux Toolkit · React Admin · Tailwind · NestJS · Prisma · PostgreSQL · Web3Auth · PostHog · Google Cloud Run',
+        'Next.js 14 · Redux Toolkit · React Admin · Tailwind · NestJS · Prisma · PostgreSQL · Ably Realtime · MVola · Web3Auth · Docker · Vercel · GCP Cloud Run',
     },
   },
   {
@@ -40,15 +44,15 @@ export const projects: Project[] = [
     role: 'Fullstack',
     client: 'YAS Madagascar',
     category: 'Realtime · Gaming',
-    link: '#',
+    link: 'https://live.soka.club/',
     repo: null,
-    desc: 'Live football prediction platform. Players forecast results, climb a leaderboard, earn SOKA points spendable across the ecosystem.',
-    tags: ['Realtime', 'Ably', 'NestJS', 'Leaderboard'],
+    desc: 'Live football prediction platform. Players forecast results, compete on a leaderboard and earn SOKA points spendable across the ecosystem — with MVola payments.',
+    tags: ['Realtime', 'Ably', 'NestJS', 'Leaderboard', 'MVola'],
     detail: {
       role: 'Realtime systems, scoring rules, wallet integration with SOKA Club.',
       impact:
         'Designed prediction windows and a live leaderboard that feels stadium-loud even on a 3G phone.',
-      stack: 'Next.js · NestJS · Ably realtime · PostgreSQL · Tailwind',
+      stack: 'Next.js 14 · NestJS · Prisma · Ably Realtime · PostgreSQL · MVola · Tailwind',
     },
   },
   {
@@ -59,26 +63,46 @@ export const projects: Project[] = [
     role: 'Fullstack',
     client: 'YAS Madagascar',
     category: 'Game · Casual',
-    link: '#',
+    link: 'https://ludoka.soka.club/',
     repo: null,
-    desc: 'Competitive Ludo game wired into the SOKA points economy. Matchmaking, verifiable RNG, payouts into the same wallet.',
-    tags: ['Game loop', 'Realtime', 'RNG', 'Web'],
+    desc: 'Competitive Ludo games wired into the SOKA points economy — and now real-money matches paid through MVola. Matchmaking, verifiable RNG, payouts into the same wallet.',
+    tags: ['Game loop', 'Realtime', 'RNG', 'MVola'],
     detail: {
-      role: 'Game state machine, matchmaking, anti-cheat, points accrual.',
+      role: 'Game state machine, matchmaking, anti-cheat, points accrual, MVola paid matches.',
       impact:
         'A folk board game turned into a native web experience. Animated tokens, fair RNG, payouts into the SOKA wallet.',
-      stack: 'Next.js · NestJS · Ably · PostgreSQL',
+      stack: 'Next.js 14 · NestJS · Prisma · Ably Realtime · PostgreSQL · MVola',
+    },
+  },
+  {
+    id: 'bmoi-intranet',
+    num: '04',
+    name: 'Intranet BMOI',
+    year: '2024',
+    role: 'Fullstack',
+    client: 'BMOI · Groupe BCP',
+    category: 'Enterprise · Intranet',
+    link: null,
+    repo: null,
+    desc: 'The bank intranet for BMOI (Groupe BCP): a NestJS / React monorepo of 14 business modules in a DDD / CQRS architecture, Azure AD sign-in and a backoffice with roles and permissions.',
+    tags: ['NestJS', 'React 19', 'DDD / CQRS', 'Azure AD', 'Monorepo'],
+    detail: {
+      role: 'Business modules, CQRS command/query layer, Azure AD integration, role-and-permission backoffice, Podman deployment.',
+      impact:
+        'Fourteen business modules behind a single Azure AD sign-in, on one typed monorepo — deployed on-premise with Podman on Red Hat.',
+      stack:
+        'NestJS · Drizzle ORM · PostgreSQL · Redis · React 19 · TanStack Query · Zustand · Tailwind · shadcn/ui · Playwright · Podman · RHEL',
     },
   },
   {
     id: 'eer',
-    num: '04',
+    num: '05',
     name: 'EER Full Digital',
     year: '2024',
     role: 'Fullstack',
     client: 'BMOI Madagascar',
     category: 'Banking · KYC',
-    link: '#',
+    link: null,
     repo: null,
     desc: 'Online bank account opening for BMOI. Video-call identity verification, secure document vault, banking-grade KYC compliance.',
     tags: ['Banking', 'KYC', 'WebRTC', 'Laravel', 'React 18'],
@@ -87,20 +111,20 @@ export const projects: Project[] = [
       impact:
         'Replaced a branch visit with a 12-minute online flow. Auditable for the bank, frictionless for the customer.',
       stack:
-        'React 18 · Laravel 10 · PrimeReact · Tailwind · PostgreSQL · Docker',
+        'React 18 · PHP 8 · Laravel 10 · PrimeReact · Tailwind · PostgreSQL · Docker',
     },
   },
   {
     id: 'shoyo',
-    num: '05',
+    num: '06',
     name: 'SHOYO',
     year: '2021–24',
     role: 'Lead Developer',
     client: 'SHOYO · France',
     category: 'Fintech · Migration',
-    link: '#',
+    link: 'https://shoyo.io/',
     repo: null,
-    desc: 'Digital case-file platform for financial onboarding. Led the Symfony → Angular + Node migration end-to-end, with the team and the cutover.',
+    desc: 'Digital case file that simplifies financial paperwork for subscribers. Led the major Symfony → Angular + Node.js rewrite end-to-end, with the team and the cutover.',
     tags: ['Angular 16', 'Symfony', 'Migration', 'Lead', 'MongoDB'],
     detail: {
       role: 'Migration architect, team mentorship, system refactor.',
@@ -112,13 +136,13 @@ export const projects: Project[] = [
   },
   {
     id: 'ocr',
-    num: '06',
+    num: '07',
     name: 'OCR Intelligence',
     year: '2023',
     role: 'R&D · Fullstack',
     client: 'SHOYO · France',
     category: 'AI · Pipeline',
-    link: '#',
+    link: null,
     repo: null,
     desc: 'OCR + GPT-4 pipeline turning photos and PDFs of ID cards, RIBs and passports into typed, validated JSON.',
     tags: ['OCR', 'Tesseract', 'GPT-4', 'pdf2image', 'AI'],
@@ -132,15 +156,15 @@ export const projects: Project[] = [
   },
   {
     id: 'happy',
-    num: '07',
-    name: 'Happy Capital',
+    num: '08',
+    name: 'Happy Capital / My Capital Immo',
     year: '2022',
     role: 'Fullstack',
     client: 'SHOYO · France',
     category: 'Fintech · Crowdfunding',
-    link: '#',
+    link: 'https://www.happy-capital.com/',
     repo: null,
-    desc: 'Real-estate crowdfunding platform. Investor accounts, project pages, real-time tracking of every euro committed.',
+    desc: 'Real-estate crowdfunding platforms. Investor accounts, project pages, real-time tracking of every investment.',
     tags: ['Fintech', 'Investing', 'Angular'],
     detail: {
       role: 'Investor dashboards, project flow, payments integration.',
@@ -151,15 +175,15 @@ export const projects: Project[] = [
   },
   {
     id: 'theseis',
-    num: '08',
+    num: '09',
     name: 'THESEIS',
     year: '2022',
     role: 'Fullstack',
     client: 'SHOYO · France',
     category: 'Documents',
-    link: '#',
+    link: 'https://edoc-test.shoyo.io/',
     repo: null,
-    desc: 'Digital document management for administrative workflows. Scan, store, search. Killed paper for clients drowning in it.',
+    desc: 'Document management: digitisation, secure storage and search — cutting the cost and delays of paper for clients drowning in it.',
     tags: ['Documents', 'Search', 'Angular'],
     detail: {
       role: 'Frontend architecture, search UX, document pipeline.',

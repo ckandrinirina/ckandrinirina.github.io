@@ -364,14 +364,14 @@ describe('fr.ts — spokenLanguages section', () => {
     expect(entry!.proficiency).toMatch(/courant|fluent/i)
   })
 
-  it('English is listed at professional/working level', () => {
+  it('English is listed at intermediate level', () => {
     const entry = fr.spokenLanguages.find(
       (l) =>
         l.language.toLowerCase().includes('anglais') ||
         l.language.toLowerCase().includes('english'),
     )
     expect(entry).toBeDefined()
-    expect(entry!.proficiency).toMatch(/professionnel|working/i)
+    expect(entry!.proficiency).toMatch(/intermédiaire/i)
   })
 })
 
