@@ -18,6 +18,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider'
 import { LanguageProvider } from '../../i18n/LanguageProvider'
 import Sidebar from './Sidebar'
 import { ROUTE_ORDER } from '../../lib/constants'
+import { projects } from '../../content/projects'
 
 function renderSidebar(
   route = 'home',
@@ -83,10 +84,12 @@ describe('Sidebar', () => {
     expect(homeRow).toHaveTextContent(/.+/)
   })
 
-  it('renders a badge for work row (badge = 8)', () => {
+  it('renders a badge for work row (badge = project count)', () => {
     renderSidebar()
     const workRow = screen.getByTestId('nav-row-work')
-    expect(within(workRow).getByText('8')).toBeInTheDocument()
+    expect(
+      within(workRow).getByText(String(projects.length)),
+    ).toBeInTheDocument()
   })
 
   // ── AC 2: active route marking ────────────────────────────────────────────

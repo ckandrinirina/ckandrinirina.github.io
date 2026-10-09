@@ -1,6 +1,6 @@
 /**
  * ProjectArt — thin dispatcher that renders the inline-SVG artwork for a
- * project `id`. Each of the eight projects owns a self-contained `*Art`
+ * project `id`. Each of the nine projects owns a self-contained `*Art`
  * component; adding a project is a new `*Art` + one map entry (Open/Closed).
  *
  * For an unknown id the dispatcher renders nothing (an empty fallback) rather
@@ -12,6 +12,7 @@ import type { ProjectId } from '../../../content/types'
 import SokaArt from './SokaArt'
 import SokaLiveArt from './SokaLiveArt'
 import LudokaArt from './LudokaArt'
+import IntranetArt from './IntranetArt'
 import EerArt from './EerArt'
 import ShoyoArt from './ShoyoArt'
 import OcrArt from './OcrArt'
@@ -30,6 +31,7 @@ const ART_BY_ID: Record<ProjectId, ComponentType<ArtProps>> = {
   soka: SokaArt,
   'soka-live': SokaLiveArt,
   ludoka: LudokaArt,
+  'bmoi-intranet': IntranetArt,
   eer: EerArt,
   shoyo: ShoyoArt,
   ocr: OcrArt,

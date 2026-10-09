@@ -143,11 +143,12 @@ export interface ContactContent {
   meta: ContactMetaRow[]
 }
 
-/** The eight known project ids (the design's fixed showcase set). */
+/** The nine known project ids (the fixed showcase set). */
 export type ProjectId =
   | 'soka'
   | 'soka-live'
   | 'ludoka'
+  | 'bmoi-intranet'
   | 'eer'
   | 'shoyo'
   | 'ocr'
@@ -168,7 +169,7 @@ export interface ProjectDetail {
  */
 export interface Project {
   id: ProjectId
-  /** Two-digit ordinal, "01"…"08". */
+  /** Two-digit ordinal, "01"…"09". */
   num: string
   name: string
   /** "2025" or a range like "2021–24". */

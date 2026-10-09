@@ -52,7 +52,7 @@ interface PortfolioContent {
   now: NowContent // headline + body + meta (label, period)
   stats: StatTile[] // [{ n, suffix?, label }]
   marquee: string[] // tech tokens
-  projects: Project[] // 8 entries (see below)
+  projects: Project[] // 9 entries (see below)
   experience: TimelineEntry[] // 7 entries
   skills: SkillCard[] // 4 cards (Frontend, Backend, Data & Cloud, AI & Craft)
   process: ProcessPrinciple[] // 5 numbered principles
@@ -74,12 +74,13 @@ interface Project {
     | 'soka'
     | 'soka-live'
     | 'ludoka'
+    | 'bmoi-intranet'
     | 'eer'
     | 'shoyo'
     | 'ocr'
     | 'happy'
     | 'theseis'
-  num: string // "01"…"08"
+  num: string // "01"…"09"
   name: string
   year: string // "2025" or "2021–24"
   role: string // "Lead Fullstack"
@@ -93,8 +94,15 @@ interface Project {
 }
 ```
 
-`src/content/projects.ts` is the derived project list (id/num/year/category/tags/detail).
-Consumed by [project-showcase](../project-showcase/index.md).
+`src/content/projects.ts` is the derived project list (id/num/year/category/tags/detail);
+the French copy overlay is `projects.fr.ts`. Consumed by
+[project-showcase](../project-showcase/index.md).
+
+**Source of truth for facts:** the CV served at `public/cv/erick-andrinirina-cv.pdf`.
+Projects, timeline, stacks, skills and languages are kept in sync with it; when the CV
+changes, replace the PDF and update `projects.ts`, `projects.fr.ts`, `fr.ts`, `en.ts`
+(and the Home `HERO` map in `views/HomeView.tsx`) together. `link` holds a project's
+public URL, or `null` for private/intranet work.
 
 ### `TimelineEntry` shape
 
@@ -146,6 +154,10 @@ User clicks LanguageSwitcher (EN ⇄ FR)
   language switch sets `<html lang>` correctly.
 
 ## Changelog
+
+- 2026-10-08 · CV refresh — content synced with the 2026 CV: new `bmoi-intranet`
+  project (9 entries), updated stacks/skills (React 19, Drizzle, Redis, TanStack
+  Query, Zustand, MVola…), English level "Intermediate", downloadable CV replaced.
 
 - 2026-06-02 · doc-optimizer upgrade — feature doc created from `components.md`,
   `data-flow.md`, and the Atelier Terminal UI design record.

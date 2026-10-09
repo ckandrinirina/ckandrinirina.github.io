@@ -50,9 +50,9 @@ describe('WorkView — grid', () => {
     )
   })
 
-  it('renders all eight projects', () => {
+  it('renders all nine projects', () => {
     const { container } = renderWork()
-    expect(container.querySelectorAll('.proj-card')).toHaveLength(8)
+    expect(container.querySelectorAll('.proj-card')).toHaveLength(9)
   })
 })
 

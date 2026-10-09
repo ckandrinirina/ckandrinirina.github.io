@@ -6,6 +6,7 @@ const ALL_IDS = [
   'soka',
   'soka-live',
   'ludoka',
+  'bmoi-intranet',
   'eer',
   'shoyo',
   'ocr',

@@ -57,9 +57,9 @@ describe('ProjectModal — open / closed', () => {
     expect(dialog).toHaveAttribute('aria-label', 'SOKA Club')
   })
 
-  it('renders the project artwork (inline SVG)', () => {
+  it('renders the project visual (screenshot or inline-SVG fallback)', () => {
     const { container } = renderModal(baseProject)
-    expect(container.querySelector('.art svg')).not.toBeNull()
+    expect(container.querySelector('.art img.shot, .art svg')).not.toBeNull()
   })
 })
 

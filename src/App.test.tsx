@@ -86,7 +86,7 @@ describe('Default route', () => {
   it('honours a valid initial hash (#work renders the project grid)', () => {
     window.history.replaceState(null, '', '#work')
     const { container } = renderApp()
-    expect(container.querySelectorAll('.proj-card')).toHaveLength(8)
+    expect(container.querySelectorAll('.proj-card')).toHaveLength(9)
   })
 })
 
@@ -96,7 +96,7 @@ describe('Sidebar navigation', () => {
     const user = userEvent.setup()
     const { container } = renderApp()
     await user.click(screen.getByTestId('nav-row-work'))
-    expect(container.querySelectorAll('.proj-card')).toHaveLength(8)
+    expect(container.querySelectorAll('.proj-card')).toHaveLength(9)
     expect(document.querySelector('h1')).toBeNull() // left home
   })
 
@@ -136,14 +136,14 @@ describe('Keyboard & wheel navigation', () => {
     const user = userEvent.setup()
     const { container } = renderApp()
     await user.keyboard('{ArrowDown}')
-    expect(container.querySelectorAll('.proj-card')).toHaveLength(8)
+    expect(container.querySelectorAll('.proj-card')).toHaveLength(9)
   })
 
   // AC: a wheel gesture past threshold at the boundary advances the route.
   it('a downward wheel gesture advances home → work', () => {
     const { container } = renderApp()
     fireEvent.wheel(viewInner(container), { deltaY: 120 })
-    expect(container.querySelectorAll('.proj-card')).toHaveLength(8)
+    expect(container.querySelectorAll('.proj-card')).toHaveLength(9)
   })
 
   // AC: navigation locks (850ms) — a second immediate gesture is ignored.
@@ -197,7 +197,7 @@ describe('Command palette (⌘K)', () => {
     // Click the "work" navigation option.
     await user.click(within(dialog).getByText(/selected work|projets/i))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    expect(container.querySelectorAll('.proj-card')).toHaveLength(8)
+    expect(container.querySelectorAll('.proj-card')).toHaveLength(9)
   })
 
   // AC: a Quick action runs (language toggle flips <html lang>).

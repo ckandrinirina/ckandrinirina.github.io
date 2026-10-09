@@ -4,6 +4,8 @@
  * Location is limited to city/country for privacy (no street address).
  */
 
+import { projects } from '../content/projects'
+
 interface SiteMeta {
   name: string
   title: string
@@ -111,7 +113,7 @@ export const ROUTE_META: Record<RouteId, RouteMeta> = {
   work: {
     labelKey: 'navWork',
     glyph: '▸',
-    badge: '8',
+    badge: String(projects.length),
     breadcrumb: 'selected-work',
   },
   experience: {

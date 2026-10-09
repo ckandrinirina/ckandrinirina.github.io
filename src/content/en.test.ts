@@ -182,10 +182,10 @@ describe('en.ts — spokenLanguages section', () => {
     expect(french?.proficiency).toBe('Fluent')
   })
 
-  it('includes English as Working proficiency', () => {
+  it('includes English at intermediate level', () => {
     const english = en.spokenLanguages.find((l) => l.language === 'English')
     expect(english).toBeDefined()
-    expect(english?.proficiency).toBe('Working proficiency')
+    expect(english?.proficiency).toBe('Intermediate')
   })
 })
 
