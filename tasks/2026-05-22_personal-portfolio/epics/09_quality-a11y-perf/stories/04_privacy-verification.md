@@ -5,7 +5,7 @@ epic: 09
 status: done
 size: S
 blocked_by: ["06-09"]
-files: [.github/workflows/deploy.yml, .gitignore, docs/CV_ANDRINIRINA_ERICK_FULLSTACK.pdf, package.json, scripts/check-privacy.mjs, scripts/check-privacy.test.mjs, src/test/deploy-workflow.test.ts]
+files: [.github/workflows/deploy.yml, .gitignore, README.md, docs/CV_ANDRINIRINA_ERICK_FULLSTACK.pdf, package.json, scripts/check-privacy.mjs, scripts/check-privacy.test.mjs, src/test/deploy-workflow.test.ts]
 issue:
 pr: 22
 delivery: pr
