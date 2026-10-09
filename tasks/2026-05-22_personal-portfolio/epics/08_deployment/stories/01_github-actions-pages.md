@@ -2,13 +2,13 @@
 id: 08-01
 title: "GitHub Actions Pages workflow"
 epic: 08
-status: todo
+status: in-progress
 size: M
 blocked_by: ["01-05", "06-09"]
-files: [".github/workflows/deploy.yml"]
+files: [.github/workflows/deploy.yml, package-lock.json, package.json, src/test/deploy-workflow.test.ts]
 issue:
-pr:
-delivery:
+pr: 21
+delivery: pr
 prior_status:
 ---
 # Story 08-01: GitHub Actions Pages workflow
@@ -23,21 +23,21 @@ This story is the core automation deliverable of the project. Once merged, every
 
 ## Acceptance Criteria
 
-- [ ] `.github/workflows/deploy.yml` exists at the repository root and is valid YAML that GitHub Actions parses without syntax errors.
-- [ ] The workflow triggers on `push` to the `main` branch.
-- [ ] The workflow triggers on `workflow_dispatch`, allowing a manual re-deploy from the GitHub Actions tab without a new commit.
-- [ ] `permissions` block at workflow level specifies exactly: `contents: read`, `pages: write`, `id-token: write`.
-- [ ] `concurrency` block specifies `group: pages` and `cancel-in-progress: true`; a second push while a deploy is in progress cancels the earlier run and only the latest commit is deployed.
-- [ ] The `build` job runs on `ubuntu-latest`.
-- [ ] The `build` job checks out the repository with `actions/checkout@v4`.
-- [ ] The `build` job sets up Node 20 with `actions/setup-node@v4` and enables the `npm` cache.
-- [ ] The `build` job runs `npm ci` (clean, reproducible install) — not `npm install`.
-- [ ] The `build` job runs `npm run build`, which executes `tsc -b && vite build` and emits `dist/` without errors.
-- [ ] The `build` job runs `actions/configure-pages@v5` to prepare the Pages environment.
-- [ ] The `build` job uploads the Pages artifact using `actions/upload-pages-artifact@v3` with `path: ./dist`.
-- [ ] The `deploy` job declares `needs: build` and only runs after the `build` job succeeds.
-- [ ] The `deploy` job targets the `github-pages` environment with `url: ${{ steps.deployment.outputs.page_url }}`.
-- [ ] The `deploy` job runs `actions/deploy-pages@v4` and the step has `id: deployment`.
+- [x] `.github/workflows/deploy.yml` exists at the repository root and is valid YAML that GitHub Actions parses without syntax errors.
+- [x] The workflow triggers on `push` to the `main` branch.
+- [x] The workflow triggers on `workflow_dispatch`, allowing a manual re-deploy from the GitHub Actions tab without a new commit.
+- [x] `permissions` block at workflow level specifies exactly: `contents: read`, `pages: write`, `id-token: write`.
+- [x] `concurrency` block specifies `group: pages` and `cancel-in-progress: true`; a second push while a deploy is in progress cancels the earlier run and only the latest commit is deployed.
+- [x] The `build` job runs on `ubuntu-latest`.
+- [x] The `build` job checks out the repository with `actions/checkout@v4`.
+- [x] The `build` job sets up Node 20 with `actions/setup-node@v4` and enables the `npm` cache.
+- [x] The `build` job runs `npm ci` (clean, reproducible install) — not `npm install`.
+- [x] The `build` job runs `npm run build`, which executes `tsc -b && vite build` and emits `dist/` without errors.
+- [x] The `build` job runs `actions/configure-pages@v5` to prepare the Pages environment.
+- [x] The `build` job uploads the Pages artifact using `actions/upload-pages-artifact@v3` with `path: ./dist`.
+- [x] The `deploy` job declares `needs: build` and only runs after the `build` job succeeds.
+- [x] The `deploy` job targets the `github-pages` environment with `url: ${{ steps.deployment.outputs.page_url }}`.
+- [x] The `deploy` job runs `actions/deploy-pages@v4` and the step has `id: deployment`.
 - [ ] After a successful run, the Actions run summary displays the live page URL (`https://ckandrinirina.github.io/`).
 - [ ] The live site correctly serves the portfolio (no 404 for `index.html`, JS bundles, or CSS); asset URLs are rooted at `/` matching `base: '/'` in `vite.config.ts`.
 
@@ -80,3 +80,29 @@ This story is the core automation deliverable of the project. Once merged, every
 - **Epic:** 08_deployment
 - **Related stories:** 01-05, 06-09, 08-02, 09-05
 - **Spec reference:** configuration.md §deploy.yml, configuration.md (Configuration matrix), overview.md §Build & deploy pipeline
+
+## Unplanned Changes
+
+- package.json — added `yaml` devDependency — parse the workflow in its structural test (ships its own types, unlike transitive `js-yaml`)
+- package-lock.json — lockfile entry for `yaml` — keeps `npm ci` reproducible
+
+---
+
+## Implementation Summary
+
+**Completed:** 2026-10-09
+**TDD Iterations:** 1
+**QA Iterations:** 1
+**Manual-test bugs:** none
+**Tests written:** 8
+**Files created:** 2
+**Files modified:** 2
+**Unplanned changes:** 2
+
+### What Was Implemented
+
+`.github/workflows/deploy.yml` with a `build` job (checkout, Node 20 with npm cache, `npm ci`, `npm run build`, configure-pages, upload-pages-artifact) and a `deploy` job (`needs: build`, `github-pages` environment, deploy-pages with `id: deployment`). Workflow-level triggers (push to `main`, `workflow_dispatch`), minimal permissions and a `pages` concurrency group. `src/test/deploy-workflow.test.ts` asserts the parsed structure.
+
+### Not verified locally
+
+The run-summary URL and the live site serving criteria need a real deploy, which requires the repo rename and Settings -> Pages -> Source = GitHub Actions. Local `npm run build` is green and `dist/` references assets rooted at `/`.
