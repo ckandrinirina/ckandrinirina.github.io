@@ -35,10 +35,9 @@ function makeView({
 
 function setup(el: HTMLElement | null, route = 'home') {
   const ref = { current: el }
-  const hook = renderHook(
-    ({ r }: { r: string }) => useScrollProgress(ref, r),
-    { initialProps: { r: route } },
-  )
+  const hook = renderHook(({ r }: { r: string }) => useScrollProgress(ref, r), {
+    initialProps: { r: route },
+  })
   return { ref, ...hook }
 }
 

@@ -2,10 +2,10 @@
 id: 14-02
 title: "Scroll-progress indicator (`useScrollProgress` + `ScrollProgress`)"
 epic: 14
-status: in-progress
+status: done
 size: M
 blocked_by: []
-files: ["src/hooks/useScrollProgress.ts", "src/hooks/useScrollProgress.test.ts", "src/components/ui/ScrollProgress.tsx", "src/components/ui/ScrollProgress.test.tsx", "src/components/layout/Topbar.tsx", "src/components/layout/Topbar.test.tsx", "src/App.tsx", "src/index.css"]
+files: [src/App.test.tsx, src/App.tsx, src/components/layout/Topbar.test.tsx, src/components/layout/Topbar.tsx, src/components/ui/ScrollProgress.test.tsx, src/components/ui/ScrollProgress.tsx, src/hooks/useScrollProgress.test.ts, src/hooks/useScrollProgress.ts, src/index.css, src/test/scroll-progress-css.test.ts]
 issue:
 pr:
 delivery:
@@ -37,20 +37,20 @@ routes from a wheel gesture at the scroll boundary) — it is a read-only, passi
 
 ## Acceptance Criteria
 
-- [ ] `src/hooks/useScrollProgress.ts` returns a `0–1` ratio: `0` at the top, `1` at the bottom
+- [x] `src/hooks/useScrollProgress.ts` returns a `0–1` ratio: `0` at the top, `1` at the bottom
       of the view's scroll range, computed as `clamp(scrollTop / (scrollHeight − clientHeight))`.
-- [ ] When `scrollHeight − clientHeight <= 0` (content fits without scrolling) the ratio is `0`
+- [x] When `scrollHeight − clientHeight <= 0` (content fits without scrolling) the ratio is `0`
       — no misleading full bar on short views.
-- [ ] The hook attaches a **passive** `scroll` listener, coalesces work into a single in-flight
+- [x] The hook attaches a **passive** `scroll` listener, coalesces work into a single in-flight
       `requestAnimationFrame`, and recomputes on `route` change and on `resize`; it removes the
       listener and cancels any pending frame on cleanup.
-- [ ] `ScrollProgress` renders a bar whose width (or `scaleX`) tracks the ratio, is positioned in
+- [x] `ScrollProgress` renders a bar whose width (or `scaleX`) tracks the ratio, is positioned in
       the Topbar under the breadcrumb, and carries `aria-hidden="true"`.
-- [ ] `App.tsx` passes its existing `viewRef` and `route` to `Topbar`, and `Topbar` forwards
+- [x] `App.tsx` passes its existing `viewRef` and `route` to `Topbar`, and `Topbar` forwards
       them to `ScrollProgress` — no second/duplicate ref is introduced.
-- [ ] Under `prefers-reduced-motion: reduce` the bar still reflects position but applies no
+- [x] Under `prefers-reduced-motion: reduce` the bar still reflects position but applies no
       animated transition (instant width update), and remains decorative.
-- [ ] Scrolling a tall view updates the bar smoothly; route navigation and the wheel-gesture
+- [x] Scrolling a tall view updates the bar smoothly; route navigation and the wheel-gesture
       route advance are unaffected. `npm run build` and the test suite pass; no new dependency.
 
 ## Technical Notes
@@ -92,16 +92,16 @@ ratio%` — either is acceptable; document the choice.
 
 ## Implementation Tasks
 
-1. [ ] Write `useScrollProgress` tests: ratio clamp, `max <= 0 → 0`, recompute on route/resize,
+1. [x] Write `useScrollProgress` tests: ratio clamp, `max <= 0 → 0`, recompute on route/resize,
        passive listener + RAF coalescing, cleanup cancels frame — RED.
-2. [ ] Implement `src/hooks/useScrollProgress.ts` to satisfy the tests — GREEN.
-3. [ ] Build `src/components/ui/ScrollProgress.tsx` (bar bound to the ratio, `aria-hidden`,
+2. [x] Implement `src/hooks/useScrollProgress.ts` to satisfy the tests — GREEN.
+3. [x] Build `src/components/ui/ScrollProgress.tsx` (bar bound to the ratio, `aria-hidden`,
        reduced-motion-aware) with its test.
-4. [ ] Add `.scroll-progress` / `.scroll-progress-bar` rules to `src/index.css` (reuse `--ease`;
+4. [x] Add `.scroll-progress` / `.scroll-progress-bar` rules to `src/index.css` (reuse `--ease`;
        drop the transition under reduced motion).
-5. [ ] Extend `Topbar` to accept `viewRef` and render `<ScrollProgress viewRef route />` under
+5. [x] Extend `Topbar` to accept `viewRef` and render `<ScrollProgress viewRef route />` under
        the breadcrumb row; update its test.
-6. [ ] Thread the existing `viewRef` (+ `route`) from `App.tsx` into `Topbar`.
+6. [x] Thread the existing `viewRef` (+ `route`) from `App.tsx` into `Topbar`.
 7. [ ] Manually verify: tall view animates the bar; short view stays at 0; route nav resets the
        bar; wheel-gesture route advance still works. Run the suite + `npm run build`.
 
@@ -116,3 +116,21 @@ ratio%` — either is acceptable; document the choice.
 - **Related stories:** 01-01 (independent; shares only non-overlapping `index.css` sections).
 - **Spec reference:** `features/scroll-motion/index.md` §Components (`ScrollProgress`),
   §Hooks (`useScrollProgress`), §Flows (scroll progress).
+
+## Implementation Summary
+
+- `useScrollProgress(viewRef, route)`: passive `scroll` listener plus `resize`, one in-flight
+  `requestAnimationFrame`, ratio clamped to `[0,1]` and `0` when the view fits; cleanup removes
+  listeners and cancels the pending frame. The first measure is also frame-scheduled, so a route
+  change resets the bar on the next frame.
+- `ScrollProgress`: `aria-hidden` track with a `scaleX(ratio)` fill (transform-origin left, cheaper
+  than animating `width`).
+- CSS: `.scroll-progress` is absolutely pinned on the topbar's bottom edge (over its border line);
+  the fill eases `transform` on `--ease`; `transition: none` under `prefers-reduced-motion: reduce`,
+  so the bar still tracks position but updates instantly.
+- `Topbar` takes a required `viewRef` and renders the bar; `App` passes its existing `viewRef` and
+  `route`. No second ref, no new dependency.
+- Tests: hook (12), component (4), CSS presence (4), Topbar (2) and an App integration test; they do
+  not read `matchMedia`, so the leaked reduced-motion stub cannot affect them.
+- Manual browser check (tall view, short view, route reset, wheel advance) is left to the
+  orchestrator's manual gate.
