@@ -26,11 +26,13 @@ import { LanguageProvider } from '../../i18n/LanguageProvider'
 import Topbar from './Topbar'
 import { ROUTE_META } from '../../lib/constants'
 
+const viewRef = { current: null }
+
 function renderTopbar(route = 'home', onOpenCmdK = vi.fn()) {
   return render(
     <ThemeProvider>
       <LanguageProvider>
-        <Topbar route={route} onOpenCmdK={onOpenCmdK} />
+        <Topbar route={route} viewRef={viewRef} onOpenCmdK={onOpenCmdK} />
       </LanguageProvider>
     </ThemeProvider>,
   )
@@ -60,7 +62,7 @@ describe('Topbar', () => {
     rerender(
       <ThemeProvider>
         <LanguageProvider>
-          <Topbar route="work" onOpenCmdK={vi.fn()} />
+          <Topbar route="work" viewRef={viewRef} onOpenCmdK={vi.fn()} />
         </LanguageProvider>
       </ThemeProvider>,
     )
@@ -191,5 +193,44 @@ describe('Topbar', () => {
     const lang = screen.getByRole('button', { name: /langue|language/i })
     expect(lang).toBeInTheDocument()
     expect(lang.textContent).toMatch(/FR|EN/)
+  })
+
+  // ── Scroll progress ───────────────────────────────────────────────────────
+  it('mounts the decorative scroll-progress bar inside the topbar', () => {
+    const { container } = renderTopbar()
+    const bar = screen.getByTestId('scroll-progress')
+    expect(container.querySelector('.topbar')).toContainElement(bar)
+    expect(bar).toHaveAttribute('aria-hidden', 'true')
+  })
+
+  it('forwards its viewRef to the scroll-progress bar', () => {
+    const view = document.createElement('div')
+    Object.defineProperty(view, 'scrollHeight', { value: 1000 })
+    Object.defineProperty(view, 'clientHeight', { value: 500 })
+    view.scrollTop = 250
+    const frames: FrameRequestCallback[] = []
+    vi.stubGlobal('requestAnimationFrame', (cb: FrameRequestCallback) =>
+      frames.push(cb),
+    )
+    vi.stubGlobal('cancelAnimationFrame', vi.fn())
+
+    render(
+      <ThemeProvider>
+        <LanguageProvider>
+          <Topbar
+            route="home"
+            viewRef={{ current: view }}
+            onOpenCmdK={vi.fn()}
+          />
+        </LanguageProvider>
+      </ThemeProvider>,
+    )
+    act(() => {
+      frames.splice(0).forEach((cb) => cb(0))
+    })
+
+    expect(screen.getByTestId('scroll-progress-bar')).toHaveStyle({
+      transform: 'scaleX(0.5)',
+    })
   })
 })
