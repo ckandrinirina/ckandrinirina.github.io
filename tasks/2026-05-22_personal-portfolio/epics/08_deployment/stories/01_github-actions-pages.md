@@ -2,7 +2,7 @@
 id: 08-01
 title: "GitHub Actions Pages workflow"
 epic: 08
-status: in-progress
+status: done
 size: M
 blocked_by: ["01-05", "06-09"]
 files: [.github/workflows/deploy.yml, package-lock.json, package.json, src/test/deploy-workflow.test.ts]
@@ -38,8 +38,8 @@ This story is the core automation deliverable of the project. Once merged, every
 - [x] The `deploy` job declares `needs: build` and only runs after the `build` job succeeds.
 - [x] The `deploy` job targets the `github-pages` environment with `url: ${{ steps.deployment.outputs.page_url }}`.
 - [x] The `deploy` job runs `actions/deploy-pages@v4` and the step has `id: deployment`.
-- [ ] After a successful run, the Actions run summary displays the live page URL (`https://ckandrinirina.github.io/`).
-- [ ] The live site correctly serves the portfolio (no 404 for `index.html`, JS bundles, or CSS); asset URLs are rooted at `/` matching `base: '/'` in `vite.config.ts`.
+- [x] After a successful run, the Actions run summary displays the live page URL (`https://ckandrinirina.github.io/`).
+- [x] The live site correctly serves the portfolio (no 404 for `index.html`, JS bundles, or CSS); asset URLs are rooted at `/` matching `base: '/'` in `vite.config.ts`.
 
 ### Edge Cases
 
@@ -106,3 +106,7 @@ This story is the core automation deliverable of the project. Once merged, every
 ### Not verified locally
 
 The run-summary URL and the live site serving criteria need a real deploy, which requires the repo rename and Settings -> Pages -> Source = GitHub Actions. Local `npm run build` is green and `dist/` references assets rooted at `/`.
+
+## Deploy Verification
+
+First deploy from `main` (run 37905010003) succeeded: build and deploy jobs green, the run summary links https://ckandrinirina.github.io/. The live site returns 200 for `/`, the hashed JS and CSS bundles under `/assets/`, `/cv/erick-andrinirina-cv.pdf`, `/robots.txt` and `/sitemap.xml`.
