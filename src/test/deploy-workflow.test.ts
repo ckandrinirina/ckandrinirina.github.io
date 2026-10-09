@@ -6,6 +6,7 @@ interface Step {
   id?: string
   uses?: string
   run?: string
+  env?: Record<string, string>
   with?: Record<string, unknown>
 }
 
@@ -78,6 +79,19 @@ describe('deploy workflow — build job', () => {
     expect(configure).toBeGreaterThan(-1)
     expect(upload).toBeGreaterThan(configure)
     expect(build.steps[upload].with).toMatchObject({ path: './dist' })
+  })
+
+  it('blocks a leaking build: privacy check runs after the build and before the upload', () => {
+    const order = build.steps.map((step) => step.run ?? step.uses)
+    const buildIndex = order.indexOf('npm run build')
+    const privacy = order.indexOf('npm run check:privacy')
+    const upload = order.indexOf('actions/upload-pages-artifact@v3')
+
+    expect(privacy).toBeGreaterThan(buildIndex)
+    expect(privacy).toBeLessThan(upload)
+    expect(build.steps[privacy].env).toEqual({
+      PRIVACY_FRAGMENTS: '${{ secrets.PRIVACY_FRAGMENTS }}',
+    })
   })
 })
 
