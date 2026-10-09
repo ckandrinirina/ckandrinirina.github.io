@@ -39,3 +39,32 @@ describe('index.html — Google Fonts', () => {
     expect(html).toMatch(/display=swap/)
   })
 })
+
+describe('index.html — Google Fonts loading (story 13-03)', () => {
+  const head = html.slice(0, html.indexOf('</head>'))
+  const headScripted = head.replace(/<noscript>[\s\S]*?<\/noscript>/g, '')
+  const fontsHref = /https:\/\/fonts\.googleapis\.com\/css2\?[^"']+/
+
+  it('does not load the fonts stylesheet as a render-blocking stylesheet', () => {
+    const blocking = headScripted.match(
+      /<link\s[^>]*rel=["']stylesheet["'][^>]*fonts\.googleapis\.com[^>]*>/i,
+    )
+    expect(blocking).toBeNull()
+  })
+
+  it('preloads the fonts stylesheet and applies it on load', () => {
+    expect(head).toMatch(
+      /<link\s[^>]*rel=["']preload["'][^>]*as=["']style["'][^>]*fonts\.googleapis\.com[^>]*onload=["']this\.onload=null;this\.rel='stylesheet'["'][^>]*>/i,
+    )
+  })
+
+  it('falls back to a plain stylesheet when JavaScript is disabled', () => {
+    expect(html).toMatch(
+      /<noscript>\s*<link\s[^>]*rel=["']stylesheet["'][^>]*fonts\.googleapis\.com[^>]*>\s*<\/noscript>/i,
+    )
+  })
+
+  it('keeps display=swap in the fonts URL', () => {
+    expect(head.match(fontsHref)?.[0]).toMatch(/display=swap/)
+  })
+})

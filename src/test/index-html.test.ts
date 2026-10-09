@@ -154,7 +154,7 @@ describe('index.html — structured data and no-JS fallback', () => {
   })
 
   it('has a <noscript> fallback with identity, bio and links, outside #root', () => {
-    const m = html.match(/<noscript>([\s\S]*?)<\/noscript>/)
+    const m = html.match(/<body[\s\S]*?<noscript>([\s\S]*?)<\/noscript>/)
     expect(m).not.toBeNull()
     const noscript = m![1]
     expect(noscript).toContain('Erick Andrinirina')

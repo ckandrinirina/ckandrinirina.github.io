@@ -19,10 +19,21 @@
     <!-- Google Fonts: Geist (sans), JetBrains Mono, Instrument Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Loaded without blocking first paint: text renders in the fallback font
+         and swaps (display=swap) once the stylesheet applies. -->
+    <!-- prettier-ignore -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300..700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300..700&display=swap"
+      />
+    </noscript>
 
     <!-- Open Graph (LinkedIn, Facebook, Slack, etc.) -->
     <!-- Absolute URL required for OG; update og:image and og:url if domain changes -->
