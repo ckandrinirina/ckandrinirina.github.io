@@ -4,8 +4,8 @@ slug: deployment
 title: "Deployment Pipeline"
 description: "This epic automates the end-to-end build and publish cycle for the portfolio."
 issue:
-pr:
-delivery:
+pr: 21
+delivery: pr
 ---
 # Epic 08: Deployment Pipeline
 
