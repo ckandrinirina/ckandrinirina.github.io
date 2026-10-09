@@ -4,8 +4,8 @@ slug: integration-qa
 title: "Integration & QA"
 description: "This epic assembles the Atelier Terminal shell and proves it meets the Definition of Done."
 issue:
-pr:
-delivery:
+pr: 20
+delivery: pr
 ---
 # Epic 04: Integration & QA
 

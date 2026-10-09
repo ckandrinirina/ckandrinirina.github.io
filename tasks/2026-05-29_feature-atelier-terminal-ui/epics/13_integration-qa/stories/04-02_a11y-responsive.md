@@ -7,8 +7,8 @@ size: M
 blocked_by: ["13-01"]
 files: ["src/index.css", "*.test.tsx"]
 issue:
-pr:
-delivery: direct
+pr: 20
+delivery: pr
 prior_status:
 ---
 # Story 04-02: Accessibility, reduced-motion & responsiveness pass
