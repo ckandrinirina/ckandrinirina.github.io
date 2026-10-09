@@ -471,6 +471,29 @@ describe('useScrollReveal', () => {
     })
   })
 
+  describe('[data-reveal] variant hook', () => {
+    it('observes an element carrying only data-reveal and gives it .in', () => {
+      const container = document.createElement('div')
+      document.body.appendChild(container)
+      const el = createRevealElement('', container)
+      el.setAttribute('data-reveal', 'blur')
+
+      renderHook(() => {
+        const ref = useRef<HTMLElement>(container)
+        useScrollReveal(ref, 'home')
+      })
+      act(() => {
+        vi.advanceTimersByTime(30)
+      })
+      expect(ioInstances[0].observed).toContain(el)
+
+      act(() => {
+        ioInstances[0].callback([makeEntry(el, true)], makeFakeObserver())
+      })
+      expect(el.classList.contains('in')).toBe(true)
+    })
+  })
+
   describe('named export', () => {
     it('is a named export function', async () => {
       const module = await import('./useScrollReveal')
