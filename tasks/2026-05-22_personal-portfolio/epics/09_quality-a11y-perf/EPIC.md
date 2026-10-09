@@ -4,8 +4,8 @@ slug: quality-a11y-perf
 title: "Quality, Accessibility & Performance"
 description: "This epic is the final quality gate for the assembled portfolio site."
 issue:
-pr:
-delivery:
+pr: 22
+delivery: pr
 ---
 # Epic 09: Quality, Accessibility & Performance
 

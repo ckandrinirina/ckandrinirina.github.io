@@ -7,8 +7,8 @@ size: S
 blocked_by: ["06-09"]
 files: [.github/workflows/deploy.yml, package.json, scripts/check-privacy.mjs, scripts/check-privacy.sh, scripts/check-privacy.test.mjs]
 issue:
-pr:
-delivery:
+pr: 22
+delivery: pr
 prior_status:
 ---
 # Story 09-04: Privacy Verification
