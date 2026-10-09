@@ -8,7 +8,7 @@ blocked_by: ["01-01", "07-01"]
 files: ["public/favicon.svg", "public/profile.jpg", "public/og-image.png", "scripts/check-assets.mjs"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 07-02: Brand assets — favicon, profile photo, Open Graph image

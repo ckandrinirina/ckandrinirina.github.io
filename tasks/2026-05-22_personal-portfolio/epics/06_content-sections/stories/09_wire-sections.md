@@ -8,7 +8,7 @@ blocked_by: ["06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-
 files: ["src/App.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 06-09: Wire sections into App + scrollspy nav

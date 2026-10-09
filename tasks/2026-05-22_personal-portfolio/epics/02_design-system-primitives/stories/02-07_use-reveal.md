@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["src/hooks/useReveal.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-07: useReveal hook

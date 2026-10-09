@@ -8,7 +8,7 @@ blocked_by: ["04-05", "04-08", "02-10"]
 files: ["src/components/sections/Hero.tsx", "src/components/sections/Hero.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 06-01: Hero section + test

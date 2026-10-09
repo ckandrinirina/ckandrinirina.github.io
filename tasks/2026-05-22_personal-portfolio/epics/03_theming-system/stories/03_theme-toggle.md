@@ -8,7 +8,7 @@ blocked_by: ["03-01", "02-04"]
 files: ["src/components/ui/ThemeToggle.tsx", "src/components/ui/ThemeToggle.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 03-03: ThemeToggle component + test

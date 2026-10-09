@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["src/hooks/useScrollSpy.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-08: useScrollSpy hook

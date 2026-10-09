@@ -8,7 +8,7 @@ blocked_by: ["04-01"]
 files: ["src/content/fr.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-02: French content module (default)

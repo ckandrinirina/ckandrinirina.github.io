@@ -8,7 +8,7 @@ blocked_by: ["02-01"]
 files: ["src/components/ui/SocialLinks.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-10: SocialLinks component

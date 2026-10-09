@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["vite.config.ts", "src/index.css", "package.json"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-02: Configure Tailwind CSS v4

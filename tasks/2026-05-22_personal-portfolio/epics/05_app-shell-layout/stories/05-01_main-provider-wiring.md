@@ -8,7 +8,7 @@ blocked_by: ["03-01", "04-05"]
 files: ["src/main.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 05-01: main.tsx provider wiring

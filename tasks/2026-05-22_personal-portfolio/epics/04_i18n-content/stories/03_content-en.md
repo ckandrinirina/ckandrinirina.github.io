@@ -8,7 +8,7 @@ blocked_by: ["04-01"]
 files: ["src/content/en.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-03: English content module

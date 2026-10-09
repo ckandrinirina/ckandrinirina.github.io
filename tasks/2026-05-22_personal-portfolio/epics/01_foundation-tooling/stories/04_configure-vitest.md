@@ -8,7 +8,7 @@ blocked_by: ["01-01", "01-02"]
 files: ["vite.config.ts", "src/test/setup.ts", "src/test/setup.test.ts", "tsconfig.json", "package.json"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-04: Configure Vitest + Testing Library + test setup

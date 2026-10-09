@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["src/content/types.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-01: Content type definitions

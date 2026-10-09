@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["eslint.config.js", ".prettierrc", "package.json"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-03: Configure ESLint 9 (flat) + Prettier

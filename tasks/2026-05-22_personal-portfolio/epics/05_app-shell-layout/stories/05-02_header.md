@@ -8,7 +8,7 @@ blocked_by: ["02-08", "02-01", "03-03", "04-06"]
 files: ["src/components/layout/Header.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 05-02: Header component

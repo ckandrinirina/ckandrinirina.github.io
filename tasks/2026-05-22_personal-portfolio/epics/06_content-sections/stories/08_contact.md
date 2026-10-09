@@ -8,7 +8,7 @@ blocked_by: ["04-05", "02-10"]
 files: ["src/components/sections/Contact.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 06-08: Contact section

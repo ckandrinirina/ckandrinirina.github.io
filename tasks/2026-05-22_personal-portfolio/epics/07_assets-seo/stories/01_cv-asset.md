@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["public/cv/erick-andrinirina-cv.pdf", "scripts/check-assets.mjs", "package.json"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 07-01: CV PDF asset + build presence check

@@ -8,7 +8,7 @@ blocked_by: []
 files: ["package.json", "vite.config.ts", "tsconfig.json", "tsconfig.node.json", "index.html", "src/main.tsx", "src/App.tsx", ".gitignore"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-01: Scaffold Vite + React 19 + TypeScript project

@@ -8,7 +8,7 @@ blocked_by: ["02-03", "02-07"]
 files: ["src/components/layout/Section.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-09: Section layout wrapper

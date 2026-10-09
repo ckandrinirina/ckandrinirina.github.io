@@ -8,7 +8,7 @@ blocked_by: ["02-01", "01-04"]
 files: ["src/components/ui/Button.tsx", "src/components/ui/Button.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-04: Button component + test

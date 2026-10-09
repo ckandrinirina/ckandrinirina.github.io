@@ -8,7 +8,7 @@ blocked_by: ["01-02"]
 files: ["src/theme/ThemeProvider.tsx", "src/theme/useTheme.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 03-01: ThemeProvider + useTheme

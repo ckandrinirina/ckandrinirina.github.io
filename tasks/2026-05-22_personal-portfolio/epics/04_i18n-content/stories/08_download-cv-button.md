@@ -8,7 +8,7 @@ blocked_by: ["04-05", "02-04"]
 files: ["src/components/ui/DownloadCvButton.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-08: DownloadCvButton component
