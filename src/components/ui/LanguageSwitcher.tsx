@@ -29,7 +29,7 @@ export default function LanguageSwitcher({
     <button
       type="button"
       onClick={() => setLocale(next)}
-      aria-label={`${t('languageSwitcher')} — ${NAME[locale]}`}
+      aria-label={`${locale.toUpperCase()} — ${t('languageSwitcher')} (${NAME[locale]})`}
       title={t('languageSwitcher')}
       data-cursor="hover"
       className={cn(

@@ -41,14 +41,14 @@ export default function Sidebar({ route, navigate }: SidebarProps) {
       <button
         type="button"
         className="sb-brand focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:outline-none"
-        aria-label="Go to home"
+        aria-label={`${SITE_META.name} ${SITE_META.title} — Go to home`}
         onClick={() => navigate('home')}
       >
         <span className="sb-mark" aria-hidden="true">
           <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="" />
         </span>
         <span className="sb-brand-text">
-          <span className="sb-name">{SITE_META.name}</span>
+          <span className="sb-name">{SITE_META.name}</span>{' '}
           <span className="sb-role">{SITE_META.title}</span>
         </span>
       </button>

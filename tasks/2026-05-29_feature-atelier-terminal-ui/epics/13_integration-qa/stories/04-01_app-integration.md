@@ -7,8 +7,8 @@ size: M
 blocked_by: ["11-01", "11-03", "12-01", "12-02", "12-03", "12-04"]
 files: ["src/App.tsx", "src/App.test.tsx", "src/components/layout/Header.tsx", "src/components/layout/Footer.tsx", "src/components/layout/Section.tsx", "src/components/sections/*", "ThemeToggle", "useScrollSpy"]
 issue:
-pr:
-delivery: direct
+pr: 20
+delivery: pr
 prior_status:
 ---
 # Story 04-01: App.tsx integration, view routing & obsolete-file teardown
