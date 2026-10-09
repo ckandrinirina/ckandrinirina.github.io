@@ -12,11 +12,13 @@ import { useRef, useState, useEffect } from 'react'
  *
  * @param options - Optional IntersectionObserverInit overrides (e.g. `{ threshold: 0.2 }`).
  */
-export function useReveal(options?: IntersectionObserverInit): {
-  ref: React.RefObject<Element | null>
+export function useReveal<T extends Element = Element>(
+  options?: IntersectionObserverInit,
+): {
+  ref: React.RefObject<T | null>
   isVisible: boolean
 } {
-  const ref = useRef<Element>(null)
+  const ref = useRef<T>(null)
 
   const [isVisible, setIsVisible] = useState<boolean>(() => {
     // Initialise to true immediately under reduced-motion (SSR-safe guard).
