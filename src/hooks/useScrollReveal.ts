@@ -11,7 +11,7 @@ const OBSERVER_ROOT_MARGIN = '0px 0px -8% 0px'
  * Kept as a single querySelectorAll argument for efficiency.
  */
 const REVEAL_SELECTOR =
-  '.reveal, .proj-card, .skill-card, .tl-item, .process-item, .now-card, .stats-grid'
+  '.reveal, .proj-card, .skill-card, .tl-item, .process-item, .now-card, .stats-grid, [data-reveal]'
 
 /**
  * useScrollReveal — 30 ms after a route change, queries all revealable
