@@ -39,3 +39,58 @@ npm run dev     # start the dev server with HMR at http://localhost:5173
 
 `npm run build` is preceded by a `prebuild` hook (`node scripts/check-assets.mjs`)
 that verifies the required `public/` assets exist before building.
+
+## Deployment (GitHub Pages)
+
+The site is published at [https://ckandrinirina.github.io/](https://ckandrinirina.github.io/)
+as a **user page**: the repository is named `ckandrinirina.github.io`, so GitHub
+serves it from the domain root.
+
+### One-time setup
+
+These steps are done once, when the repository is created. Repeating them on
+later pushes is unnecessary and does not trigger a deploy — only the workflow
+trigger below does.
+
+1. Create the GitHub repository named `ckandrinirina.github.io` (a user page).
+2. Push the code to `main`.
+3. In the repository, open **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**.
+4. Confirm `vite.config.ts` has `base` set to `'/'` (the user-page value).
+
+### Every deploy
+
+```bash
+git push origin main   # triggers .github/workflows/deploy.yml
+```
+
+Pushing to `main` runs `.github/workflows/deploy.yml`, which:
+
+1. checks out the code and installs Node 20 with the npm cache,
+2. runs `npm ci` then `npm run build` (type-check + Vite build to `dist/`),
+3. uploads `dist/` as the Pages artifact and publishes it with
+   `actions/deploy-pages`.
+
+The workflow can also be started by hand from the **Actions** tab
+(`workflow_dispatch`). A newer push cancels an in-flight deploy (`concurrency:
+pages`), so a rapid second push never leaves a half-published site. The live
+URL appears in the run summary of the `deploy` job.
+
+### Base path: user page vs project page
+
+`base` in `vite.config.ts` must match where GitHub Pages serves the site, or
+every asset 404s:
+
+| Deployment   | Repository name           | Served at                                       | `vite.config.ts`         |
+| ------------ | ------------------------- | ----------------------------------------------- | ------------------------ |
+| User page    | `ckandrinirina.github.io` | `https://ckandrinirina.github.io/`              | `base: '/'` (current)    |
+| Project page | e.g. `ck-portfolio`       | `https://ckandrinirina.github.io/ck-portfolio/` | `base: '/ck-portfolio/'` |
+
+The live URL therefore follows the repository name. If the repository is ever
+renamed to something other than `ckandrinirina.github.io`, GitHub Pages serves
+it at `https://ckandrinirina.github.io/<repo>/` and `base` must be updated to
+`'/<repo>/'`.
+
+Changing `base` away from `'/'` also means any absolute reference to a file in
+`public/` (the OG image in `index.html`, the CV PDF link, `sitemap.xml`
+entries) must be built from `import.meta.env.BASE_URL` rather than a hardcoded
+`/` prefix, otherwise those links break on the project-page URL.
