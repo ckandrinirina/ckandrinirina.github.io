@@ -8,7 +8,7 @@ blocked_by: ['13-02']
 files: [index.html, src/*, src/components/layout/Sidebar.tsx, src/components/layout/Topbar.tsx, src/components/ui/LanguageSwitcher.tsx, src/index.css, src/test/google-fonts.test.ts, src/test/index-html.test.ts, src/test/lighthouse-css.test.ts, src/test/lighthouse-label-in-name.test.tsx, vite.config.ts]
 issue:
 pr: 20
-delivery: pr
+delivery: merged
 prior_status:
 ---
 

@@ -2,7 +2,7 @@
 id: 08-01
 title: "GitHub Actions Pages workflow"
 epic: 08
-status: todo
+status: in-progress
 size: M
 blocked_by: ["01-05", "06-09"]
 files: [".github/workflows/deploy.yml"]

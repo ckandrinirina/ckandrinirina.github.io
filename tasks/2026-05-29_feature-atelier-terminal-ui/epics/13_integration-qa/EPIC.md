@@ -5,7 +5,7 @@ title: "Integration & QA"
 description: "This epic assembles the Atelier Terminal shell and proves it meets the Definition of Done."
 issue:
 pr: 20
-delivery: pr
+delivery: merged
 ---
 # Epic 04: Integration & QA
 

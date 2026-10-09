@@ -8,7 +8,7 @@ blocked_by: ["13-01"]
 files: ["src/index.css", "*.test.tsx"]
 issue:
 pr: 20
-delivery: pr
+delivery: merged
 prior_status:
 ---
 # Story 04-02: Accessibility, reduced-motion & responsiveness pass
