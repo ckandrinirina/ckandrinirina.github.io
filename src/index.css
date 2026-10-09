@@ -467,6 +467,26 @@ body::after {
   z-index: 9;
 }
 
+/* Scroll progress — decorative bar on the topbar's bottom edge. Scales from the
+   left (transform only, no layout); useScrollProgress sets scaleX inline. */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s var(--ease);
+  will-change: transform;
+}
+
 .tb-breadcrumb {
   display: flex;
   align-items: center;
@@ -2486,6 +2506,10 @@ body::after {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .scroll-progress-bar {
+    transition: none;
   }
 
   .marquee-track {
