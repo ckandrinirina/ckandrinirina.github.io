@@ -2,7 +2,7 @@
 id: 14-02
 title: "Scroll-progress indicator (`useScrollProgress` + `ScrollProgress`)"
 epic: 14
-status: todo
+status: in-progress
 size: M
 blocked_by: []
 files: ["src/hooks/useScrollProgress.ts", "src/hooks/useScrollProgress.test.ts", "src/components/ui/ScrollProgress.tsx", "src/components/ui/ScrollProgress.test.tsx", "src/components/layout/Topbar.tsx", "src/components/layout/Topbar.test.tsx", "src/App.tsx", "src/index.css"]
