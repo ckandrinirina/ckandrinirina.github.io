@@ -48,7 +48,7 @@ export default function Sidebar({ route, navigate }: SidebarProps) {
           <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="" />
         </span>
         <span className="sb-brand-text">
-          <span className="sb-name">{SITE_META.name}</span>
+          <span className="sb-name">{SITE_META.name}</span>{' '}
           <span className="sb-role">{SITE_META.title}</span>
         </span>
       </button>

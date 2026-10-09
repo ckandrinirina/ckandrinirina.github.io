@@ -48,4 +48,10 @@ describe('accessible names contain the visible label', () => {
     const code = btn.querySelector('.tb-lang-code')!.textContent!
     expect(accessibleName(btn)).toContain(code)
   })
+
+  it('the sidebar brand visible text keeps a word break between name and role', () => {
+    withProviders(<Sidebar route="home" navigate={() => {}} />)
+    const brand = document.querySelector<HTMLElement>('.sb-brand')!
+    expect(brand.textContent).toContain(`${SITE_META.name} ${SITE_META.title}`)
+  })
 })
