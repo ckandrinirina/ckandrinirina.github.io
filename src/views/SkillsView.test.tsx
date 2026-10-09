@@ -8,7 +8,7 @@
  * - Revealable items carry .skill-card class
  */
 
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { LanguageProvider } from '../i18n/LanguageProvider'
 import SkillsView from './SkillsView'
@@ -119,5 +119,52 @@ describe('SkillsView — scroll-reveal classes', () => {
     const { container } = renderSkills()
     const cards = container.querySelectorAll('.skill-card')
     expect(cards.length).toBeGreaterThan(0)
+  })
+})
+
+describe('SkillsView — scroll-driven tool counts', () => {
+  const realMatchMedia = window.matchMedia
+  afterEach(() => {
+    vi.stubGlobal('matchMedia', realMatchMedia)
+  })
+
+  const visibleCount = (card: Element) =>
+    card.querySelector('.count [aria-hidden="true"]')?.textContent
+
+  it('keeps each count at 0 until its card scrolls into view', () => {
+    const { container } = renderSkills()
+    container.querySelectorAll('.skill-card').forEach((card) => {
+      expect(visibleCount(card)).toMatch(/^0 /)
+    })
+  })
+
+  it('still exposes the full count to assistive tech from the start', () => {
+    const { container } = renderSkills()
+    container.querySelectorAll('.skill-card').forEach((card) => {
+      const label = card.querySelector('.count .sr-only')?.textContent
+      expect(label).toMatch(/^[1-9]\d* tools$/)
+    })
+  })
+
+  it('shows the final count immediately under reduced motion', () => {
+    vi.stubGlobal(
+      'matchMedia',
+      (query: string) =>
+        ({ matches: query.includes('reduce'), media: query }) as MediaQueryList,
+    )
+    const { container } = renderSkills()
+    container.querySelectorAll('.skill-card').forEach((card) => {
+      const label = card.querySelector('.count .sr-only')?.textContent
+      expect(visibleCount(card)).toBe(label)
+    })
+  })
+})
+
+describe('SkillsView — title reveal', () => {
+  it('blurs the section title in via data-reveal', () => {
+    const { container } = renderSkills()
+    const title = container.querySelector('h2.section-title')
+    expect(title).toHaveClass('reveal')
+    expect(title).toHaveAttribute('data-reveal', 'blur')
   })
 })
