@@ -2,10 +2,10 @@
 id: 09-04
 title: "Privacy Verification"
 epic: 09
-status: in-progress
+status: done
 size: S
 blocked_by: ["06-09"]
-files: [.github/workflows/deploy.yml, package.json, scripts/check-privacy.mjs, scripts/check-privacy.sh, scripts/check-privacy.test.mjs]
+files: [.github/workflows/deploy.yml, .gitignore, docs/CV_ANDRINIRINA_ERICK_FULLSTACK.pdf, package-lock.json, package.json, scripts/check-privacy.mjs, scripts/check-privacy.sh, scripts/check-privacy.test.mjs, src/test/deploy-workflow.test.ts]
 issue:
 pr: 22
 delivery: pr
@@ -49,7 +49,7 @@ accidentally re-introduced.
     found.
 - [x] `package.json` includes a `check:privacy` script that runs the guard
       against `./dist`.
-- [ ] The GitHub Actions deploy workflow runs `npm run check:privacy` after
+- [x] The GitHub Actions deploy workflow runs `npm run check:privacy` after
       `npm run build` and before uploading the Pages artifact, so a leak blocks
       the deploy.
 - [x] Manual check noted: if a CV PDF is present at `public/cv/`, the developer
@@ -122,8 +122,8 @@ accidentally re-introduced.
 ## Implementation Summary
 
 - Guard is `scripts/check-privacy.mjs` (Node, same style as `check-assets.mjs`), run by `npm run check:privacy` against `./dist`. Exit 0 clean, 1 violation or missing public contact, 2 when the target dir is absent.
-- Deviation from the story text: the repository is public, so the real street-address fragments are not stored in the script. They come from `PRIVACY_FRAGMENTS` (`;`-separated, for a CI secret) and the gitignored `scripts/privacy-fragments.local`. Generic patterns (lot number, `NNN Antananarivo`) are built in. Fragments are reported by index, never printed.
+- Deviation from the story text: the repository is public, so the real street-address fragments are not stored in the script. They come from `PRIVACY_FRAGMENTS` (`;`-separated, for a CI secret) and the gitignored `scripts/privacy-fragments.local`. Generic patterns (lot number, `NNN Antananarivo`) are built in. Fragments are reported by index, never printed. Decision: the user approved this secret approach and added the `PRIVACY_FRAGMENTS` Actions secret.
 - Verified on the current build: `dist/` has no address fragment; email and `261385096664` are present; JSON-LD, noscript and sitemap carry only Antananarivo / MG; location content is exactly `Antananarivo, Madagascar` in fr and en. `vite.config.ts` has no `build.sourcemap`, and `.map` files are scanned anyway.
 - Manual PDF check done on `public/cv/erick-andrinirina-cv.pdf` (2 pages): only the city and country appear; metadata is the title. Noted in the script header.
-- Not done: `.github/workflows/deploy.yml` does not exist on this branch (epic 08), so the CI step is pending. The workflow must run `npm run check:privacy` after `npm run build` with the `PRIVACY_FRAGMENTS` secret set.
-- Pre-existing finding: `docs/CV_ANDRINIRINA_ERICK_FULLSTACK.pdf` (committed in the public repo) contains the full street address.
+- CI: the deploy workflow's build job runs `npm run check:privacy` (with `PRIVACY_FRAGMENTS` from the Actions secret) after `npm run build` and before `actions/upload-pages-artifact`, so a leak blocks the deploy. Covered by `src/test/deploy-workflow.test.ts`.
+- Pre-existing finding: the source CV under `docs/` showed the full street address; it is no longer tracked (`df6ce88`), though it remains in git history.
