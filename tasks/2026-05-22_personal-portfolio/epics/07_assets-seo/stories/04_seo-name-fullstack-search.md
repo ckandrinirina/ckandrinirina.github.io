@@ -23,10 +23,10 @@ Make the published portfolio easy to find for searches on the name "Erick Andrin
 
 ## Acceptance Criteria
 
-- [ ] `<title>` contains "Erick Andrinirina", "Développeur Fullstack" and "Fullstack Developer"; `<meta name="description">` is ≤ 160 characters and mentions fullstack, React, Next.js, NestJS and Madagascar; `og:title`/`og:description` and `twitter:title`/`twitter:description` match them; `og:locale` is `fr_FR` with an `og:locale:alternate` of `en_US`.
-- [ ] `index.html` has `<link rel="canonical" href="https://ckandrinirina.github.io/">`; a `<script type="application/ld+json">` block parses as valid JSON describing a schema.org `Person` with `name`, `jobTitle`, `url`, `image`, `address` (Antananarivo, MG), `knowsAbout` and `sameAs` listing `https://github.com/ckandrinirina` and `https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/`; a `<noscript>` block contains the name, the title, a short bio and links to GitHub, LinkedIn and the CV PDF.
-- [ ] `public/robots.txt` allows all crawlers and declares `Sitemap: https://ckandrinirina.github.io/sitemap.xml`; `public/sitemap.xml` is valid XML listing `https://ckandrinirina.github.io/` and `https://ckandrinirina.github.io/cv/erick-andrinirina-cv.pdf`; both files are present in `dist/` after `npm run build`.
-- [ ] Human check: `npm run build && npm run preview`, view the page source — the new title, description, canonical, JSON-LD and noscript are there; `/robots.txt` and `/sitemap.xml` open in the browser.
+- [x] `<title>` contains "Erick Andrinirina", "Développeur Fullstack" and "Fullstack Developer"; `<meta name="description">` is ≤ 160 characters and mentions fullstack, React, Next.js, NestJS and Madagascar; `og:title`/`og:description` and `twitter:title`/`twitter:description` match them; `og:locale` is `fr_FR` with an `og:locale:alternate` of `en_US`.
+- [x] `index.html` has `<link rel="canonical" href="https://ckandrinirina.github.io/">`; a `<script type="application/ld+json">` block parses as valid JSON describing a schema.org `Person` with `name`, `jobTitle`, `url`, `image`, `address` (Antananarivo, MG), `knowsAbout` and `sameAs` listing `https://github.com/ckandrinirina` and `https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/`; a `<noscript>` block contains the name, the title, a short bio and links to GitHub, LinkedIn and the CV PDF.
+- [x] `public/robots.txt` allows all crawlers and declares `Sitemap: https://ckandrinirina.github.io/sitemap.xml`; `public/sitemap.xml` is valid XML listing `https://ckandrinirina.github.io/` and `https://ckandrinirina.github.io/cv/erick-andrinirina-cv.pdf`; both files are present in `dist/` after `npm run build`.
+- [x] Human check: `npm run build && npm run preview`, view the page source — the new title, description, canonical, JSON-LD and noscript are there; `/robots.txt` and `/sitemap.xml` open in the browser.
 
 ### Edge Cases
 
@@ -53,3 +53,11 @@ Make the published portfolio easy to find for searches on the name "Erick Andrin
 
 - **Epic:** 07_assets-seo
 - **Related stories:** 07-03 (SEO metadata baseline), 12-05 (same GitHub/LinkedIn URLs on the page), 08-01 (deploys to the canonical host)
+
+## Implementation Summary
+
+- **Head:** new title ("Erick Andrinirina — Développeur Fullstack | Fullstack Developer"), 145-char description, matching Open Graph / Twitter tags, `og:locale` `fr_FR` + alternate `en_US`, canonical link.
+- **Structured data:** JSON-LD `Person` (name, jobTitle, url, image, address, knowsAbout, sameAs) and a `<noscript>` fallback after `#root` with bio, GitHub, LinkedIn and CV links.
+- **Crawler files:** `public/robots.txt` and `public/sitemap.xml`, both emitted to `dist/`.
+- **Tests:** `src/test/index-html.test.ts` extended (JSON-LD parsed and checked against `SOCIAL_LINKS`); `src/test/seo-files.test.ts` added.
+- **Verification:** full suite (776) green, lint green, build green; `vite preview` serves the new tags, `/robots.txt`, `/sitemap.xml` and the CV PDF.
