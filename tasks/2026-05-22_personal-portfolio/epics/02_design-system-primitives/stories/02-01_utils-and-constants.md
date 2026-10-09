@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["src/lib/utils.ts", "src/lib/constants.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-01: Utilities & site constants

@@ -8,7 +8,7 @@ blocked_by: ["04-05", "02-05", "02-09"]
 files: ["src/components/sections/Skills.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 06-03: Skills section

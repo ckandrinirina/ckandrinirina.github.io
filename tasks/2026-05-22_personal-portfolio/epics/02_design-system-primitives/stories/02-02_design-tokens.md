@@ -8,7 +8,7 @@ blocked_by: ["01-02"]
 files: ["src/index.css"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-02: Design tokens in index.css @theme

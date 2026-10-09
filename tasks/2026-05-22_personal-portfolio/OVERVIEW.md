@@ -1,7 +1,7 @@
 ---
 slug: personal-portfolio
 title: Erick Andrinirina — Personal Portfolio
-integration: story
+integration: epic
 branch:
 issue:
 pr:

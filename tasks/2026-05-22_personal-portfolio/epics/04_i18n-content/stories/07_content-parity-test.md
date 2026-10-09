@@ -8,7 +8,7 @@ blocked_by: ["04-02", "04-03"]
 files: ["src/content/content.test.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-07: Content parity test

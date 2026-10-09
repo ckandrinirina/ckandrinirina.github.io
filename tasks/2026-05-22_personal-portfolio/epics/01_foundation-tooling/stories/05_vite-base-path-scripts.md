@@ -8,7 +8,7 @@ blocked_by: ["01-01"]
 files: ["vite.config.ts", "package.json"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-05: Finalize Vite base path & npm scripts

@@ -8,7 +8,7 @@ blocked_by: ["05-02", "05-03"]
 files: ["src/App.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 05-04: App.tsx page shell

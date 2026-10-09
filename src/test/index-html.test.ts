@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import html from '../../index.html?raw'
+import { SOCIAL_LINKS } from '../lib/constants'
 
 const OG_IMAGE_URL = 'https://ckandrinirina.github.io/og-image.png'
 const SITE_URL = 'https://ckandrinirina.github.io/'
@@ -28,25 +29,32 @@ describe('index.html — SEO metadata', () => {
     )
   })
 
-  it('has the portfolio title', () => {
+  it('has a title carrying the name and both fullstack keywords', () => {
     const m = html.match(/<title>([^<]+)<\/title>/i)
     expect(m).not.toBeNull()
-    expect(m![1].trim()).toBe(
-      'Erick Andrinirina — Fullstack JavaScript Engineer',
-    )
+    expect(m![1]).toContain('Erick Andrinirina')
+    expect(m![1]).toContain('Développeur Fullstack')
+    expect(m![1]).toContain('Fullstack Developer')
   })
 
-  it('has a meta description under 160 characters mentioning the name', () => {
+  it('has a meta description of at most 160 characters with the search keywords', () => {
     const desc = metaContent(html, 'name', 'description')
     expect(desc).not.toBeNull()
-    expect(desc!.length).toBeGreaterThan(0)
-    expect(desc!.length).toBeLessThan(160)
-    expect(desc).toMatch(/Erick Andrinirina/)
+    expect(desc!.length).toBeLessThanOrEqual(160)
+    for (const keyword of [
+      'fullstack',
+      'React',
+      'Next.js',
+      'NestJS',
+      'Madagascar',
+    ]) {
+      expect(desc!.toLowerCase()).toContain(keyword.toLowerCase())
+    }
   })
 
   it('has og:title matching <title>', () => {
     expect(metaContent(html, 'property', 'og:title')).toBe(
-      'Erick Andrinirina — Fullstack JavaScript Engineer',
+      html.match(/<title>([^<]+)<\/title>/i)![1].trim(),
     )
   })
 
@@ -54,6 +62,11 @@ describe('index.html — SEO metadata', () => {
     const ogDesc = metaContent(html, 'property', 'og:description')
     const metaDesc = metaContent(html, 'name', 'description')
     expect(ogDesc).toBe(metaDesc)
+  })
+
+  it('declares fr_FR with en_US as the alternate locale', () => {
+    expect(metaContent(html, 'property', 'og:locale')).toBe('fr_FR')
+    expect(metaContent(html, 'property', 'og:locale:alternate')).toBe('en_US')
   })
 
   it('has og:image with the absolute production URL', () => {
@@ -99,5 +112,56 @@ describe('index.html — SEO metadata', () => {
     expect(html).toMatch(/prefers-color-scheme:\s*dark/)
     // legacy dark-class bootstrap must be gone
     expect(html).not.toMatch(/classList\.add\(['"]dark['"]\)/)
+  })
+
+  it('declares the canonical URL', () => {
+    expect(html).toContain(`<link rel="canonical" href="${SITE_URL}" />`)
+  })
+})
+
+describe('index.html — structured data and no-JS fallback', () => {
+  const jsonLd = () => {
+    const m = html.match(
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+    )
+    expect(m).not.toBeNull()
+    return JSON.parse(m![1])
+  }
+
+  it('describes a schema.org Person as valid JSON-LD', () => {
+    const person = jsonLd()
+    expect(person['@context']).toBe('https://schema.org')
+    expect(person['@type']).toBe('Person')
+    expect(person.name).toBe('Erick Andrinirina')
+    expect(person.jobTitle).toBeTruthy()
+    expect(person.url).toBe(SITE_URL)
+    expect(person.image).toBe(`${SITE_URL}profile.jpg`)
+    expect(person.address).toMatchObject({
+      addressLocality: 'Antananarivo',
+      addressCountry: 'MG',
+    })
+    expect(person.knowsAbout).toEqual(
+      expect.arrayContaining(['React', 'Next.js', 'NestJS']),
+    )
+    expect(person.sameAs).toEqual([
+      'https://github.com/ckandrinirina',
+      'https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/',
+    ])
+  })
+
+  it('keeps the JSON-LD links in sync with SOCIAL_LINKS', () => {
+    expect(jsonLd().sameAs).toEqual(Object.values(SOCIAL_LINKS))
+  })
+
+  it('has a <noscript> fallback with identity, bio and links, outside #root', () => {
+    const m = html.match(/<noscript>([\s\S]*?)<\/noscript>/)
+    expect(m).not.toBeNull()
+    const noscript = m![1]
+    expect(noscript).toContain('Erick Andrinirina')
+    expect(noscript).toMatch(/Développeur Fullstack/)
+    expect(noscript).toContain(SOCIAL_LINKS.github)
+    expect(noscript).toContain(SOCIAL_LINKS.linkedin)
+    expect(noscript).toContain('/cv/erick-andrinirina-cv.pdf')
+    expect(html).toMatch(/<div id="root"><\/div>/)
   })
 })

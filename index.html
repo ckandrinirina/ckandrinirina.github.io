@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Erick Andrinirina — Fullstack JavaScript Engineer</title>
+    <title>
+      Erick Andrinirina — Développeur Fullstack | Fullstack Developer
+    </title>
+    <link rel="canonical" href="https://ckandrinirina.github.io/" />
     <meta
       name="description"
-      content="Erick Andrinirina — Fullstack JavaScript Engineer with 7 years of experience building performant, scalable web applications."
+      content="Erick Andrinirina, développeur fullstack à Antananarivo, Madagascar. React, Next.js, NestJS, TypeScript. Fullstack developer, 7 ans d'expérience."
     />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -25,13 +28,15 @@
     <!-- Absolute URL required for OG; update og:image and og:url if domain changes -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ckandrinirina.github.io/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta
       property="og:title"
-      content="Erick Andrinirina — Fullstack JavaScript Engineer"
+      content="Erick Andrinirina — Développeur Fullstack | Fullstack Developer"
     />
     <meta
       property="og:description"
-      content="Erick Andrinirina — Fullstack JavaScript Engineer with 7 years of experience building performant, scalable web applications."
+      content="Erick Andrinirina, développeur fullstack à Antananarivo, Madagascar. React, Next.js, NestJS, TypeScript. Fullstack developer, 7 ans d'expérience."
     />
     <meta
       property="og:image"
@@ -42,11 +47,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Erick Andrinirina — Fullstack JavaScript Engineer"
+      content="Erick Andrinirina — Développeur Fullstack | Fullstack Developer"
     />
     <meta
       name="twitter:description"
-      content="Erick Andrinirina — Fullstack JavaScript Engineer with 7 years of experience building performant, scalable web applications."
+      content="Erick Andrinirina, développeur fullstack à Antananarivo, Madagascar. React, Next.js, NestJS, TypeScript. Fullstack developer, 7 ans d'expérience."
     />
     <meta
       name="twitter:image"
@@ -67,9 +72,54 @@
         } catch (e) {}
       })()
     </script>
+    <!-- Structured data: identity for search engines (the SPA renders client-side) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Erick Andrinirina",
+        "jobTitle": "Développeur Fullstack / Fullstack Developer",
+        "url": "https://ckandrinirina.github.io/",
+        "image": "https://ckandrinirina.github.io/profile.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Antananarivo",
+          "addressCountry": "MG"
+        },
+        "knowsAbout": [
+          "React",
+          "Next.js",
+          "NestJS",
+          "TypeScript",
+          "Node.js",
+          "Fullstack development"
+        ],
+        "sameAs": [
+          "https://github.com/ckandrinirina",
+          "https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>Erick Andrinirina — Développeur Fullstack | Fullstack Developer</h1>
+      <p>
+        Développeur Fullstack JavaScript (React, Next.js, NestJS) avec 7 ans
+        d'expérience, basé à Antananarivo, Madagascar. Fullstack developer
+        building performant, scalable web applications.
+      </p>
+      <ul>
+        <li><a href="https://github.com/ckandrinirina">GitHub</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/"
+            >LinkedIn</a
+          >
+        </li>
+        <li><a href="/cv/erick-andrinirina-cv.pdf">CV (PDF)</a></li>
+      </ul>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

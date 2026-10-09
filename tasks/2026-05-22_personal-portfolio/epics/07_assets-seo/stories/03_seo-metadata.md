@@ -7,8 +7,8 @@ size: M
 blocked_by: ["07-02"]
 files: ["index.html"]
 issue:
-pr:
-delivery:
+pr: 18
+delivery: pr
 prior_status:
 ---
 # Story 07-03: index.html SEO metadata

@@ -8,7 +8,7 @@ blocked_by: ["03-01"]
 files: ["index.html"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 03-02: Anti-FOUC inline theme bootstrap script

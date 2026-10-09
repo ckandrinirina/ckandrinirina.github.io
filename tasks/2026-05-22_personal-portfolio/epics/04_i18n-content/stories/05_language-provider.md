@@ -8,7 +8,7 @@ blocked_by: ["04-02", "04-03", "04-04"]
 files: ["src/i18n/LanguageProvider.tsx", "src/i18n/useLanguage.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-05: LanguageProvider + useLanguage

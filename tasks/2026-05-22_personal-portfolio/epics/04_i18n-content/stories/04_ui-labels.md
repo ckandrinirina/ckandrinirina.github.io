@@ -8,7 +8,7 @@ blocked_by: ["04-01"]
 files: ["src/i18n/ui.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-04: UI micro-labels map

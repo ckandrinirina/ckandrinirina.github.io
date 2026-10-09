@@ -8,7 +8,7 @@ blocked_by: ["02-10"]
 files: ["src/components/layout/Footer.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 05-03: Footer component

@@ -8,7 +8,7 @@ blocked_by: ["01-02", "02-01"]
 files: ["src/components/layout/Container.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-03: Container component

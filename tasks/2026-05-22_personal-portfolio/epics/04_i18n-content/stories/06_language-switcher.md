@@ -8,7 +8,7 @@ blocked_by: ["04-05"]
 files: ["src/components/ui/LanguageSwitcher.tsx", "src/components/ui/LanguageSwitcher.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 04-06: LanguageSwitcher + test

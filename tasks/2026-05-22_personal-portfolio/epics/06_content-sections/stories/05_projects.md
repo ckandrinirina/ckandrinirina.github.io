@@ -8,7 +8,7 @@ blocked_by: ["04-05", "02-06", "02-09"]
 files: ["src/components/sections/Projects.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 06-05: Projects section
