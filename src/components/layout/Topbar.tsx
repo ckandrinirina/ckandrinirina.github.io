@@ -80,7 +80,7 @@ export default function Topbar({ route, viewRef, onOpenCmdK }: TopbarProps) {
         type="button"
         className="tb-search focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:outline-none"
         data-testid="tb-cmdk-btn"
-        aria-label="Open command palette (⌘K)"
+        aria-label="Quick nav ⌘K — open command palette"
         onClick={onOpenCmdK}
       >
         <span>Quick nav</span>

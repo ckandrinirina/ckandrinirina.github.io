@@ -41,7 +41,7 @@ export default function Sidebar({ route, navigate }: SidebarProps) {
       <button
         type="button"
         className="sb-brand focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:outline-none"
-        aria-label="Go to home"
+        aria-label={`${SITE_META.name} ${SITE_META.title} — Go to home`}
         onClick={() => navigate('home')}
       >
         <span className="sb-mark" aria-hidden="true">
