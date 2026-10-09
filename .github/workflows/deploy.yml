@@ -25,6 +25,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Check privacy (no street address in dist)
+        run: npm run check:privacy
+        env:
+          PRIVACY_FRAGMENTS: ${{ secrets.PRIVACY_FRAGMENTS }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
