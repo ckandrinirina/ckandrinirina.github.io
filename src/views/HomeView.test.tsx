@@ -323,12 +323,24 @@ describe('HomeView — Stats grid', () => {
 // Scroll-triggered count-up (useInView)
 // ---------------------------------------------------------------------------
 
+function stubMotionPreference(reduced: boolean) {
+  vi.stubGlobal(
+    'matchMedia',
+    (query: string) =>
+      ({
+        matches: reduced && query.includes('reduce'),
+        media: query,
+      }) as MediaQueryList,
+  )
+}
+
 describe('HomeView — stats count up on scroll-in', () => {
   const realObserver = globalThis.IntersectionObserver
   const observers: { cb: IntersectionObserverCallback; els: Element[] }[] = []
 
   beforeEach(() => {
     vi.useFakeTimers()
+    stubMotionPreference(false)
     observers.length = 0
     class CapturingObserver {
       private record: (typeof observers)[number]
@@ -358,7 +370,7 @@ describe('HomeView — stats count up on scroll-in', () => {
     const grid = container.querySelector('.stats-grid')!
 
     act(() => {
-      vi.runAllTimers()
+      vi.advanceTimersByTime(2000)
     })
     expect(statTexts().every((t) => t?.startsWith('0'))).toBe(true)
 
@@ -368,9 +380,17 @@ describe('HomeView — stats count up on scroll-in', () => {
         [{ isIntersecting: true, target: grid } as IntersectionObserverEntry],
         {} as IntersectionObserver,
       )
-      vi.runAllTimers()
     })
-    expect(statTexts()[0]).toBe('7+')
+    act(() => {
+      vi.advanceTimersByTime(2000)
+    })
+    expect(statTexts()[1]).toBe('8+')
+  })
+
+  it('shows the final stats immediately under reduced motion', () => {
+    stubMotionPreference(true)
+    renderHomeView()
+    expect(statTexts()[1]).toBe('8+')
   })
 })
 

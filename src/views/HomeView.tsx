@@ -22,6 +22,7 @@ import { useEffect, useState, type ReactNode } from 'react'
 import { useLanguage } from '../i18n/useLanguage'
 import Reveal from '../components/ui/Reveal'
 import CountUp from '../components/ui/CountUp'
+import { useInView } from '../hooks/useInView'
 import Marquee from '../components/ui/Marquee'
 import DownloadCvButton from '../components/ui/DownloadCvButton'
 
@@ -190,7 +191,7 @@ function RoleRotor({ alsoA, roles }: { alsoA: string; roles: string[] }) {
   }, [reduced, roles.length])
 
   return (
-    <div className="home-roles reveal r-fade">
+    <div className="home-roles reveal" data-reveal="fade">
       <span>{alsoA}</span>
       <span className="home-rotor" aria-live="polite" aria-atomic="true">
         <span
@@ -215,6 +216,7 @@ function RoleRotor({ alsoA, roles }: { alsoA: string; roles: string[] }) {
 export default function HomeView({ navigate }: HomeViewProps) {
   const { locale } = useLanguage()
   const c = HERO[locale]
+  const [statsRef, statsInView] = useInView<HTMLDivElement>()
 
   // Profile image path — served from public/ with a stable URL.
   const profileSrc = `${import.meta.env.BASE_URL}profile.jpg`
@@ -228,7 +230,7 @@ export default function HomeView({ navigate }: HomeViewProps) {
         {/* ── Hero ───────────────────────────────────────────────────────── */}
         <section className="home-hero">
           <div className="home-hero-text">
-            <div className="home-greet reveal r-fade">
+            <div className="home-greet reveal" data-reveal="fade">
               <span className="home-greet-pulse" aria-hidden="true" />
               <span>{c.greet}</span>
             </div>
@@ -241,11 +243,13 @@ export default function HomeView({ navigate }: HomeViewProps) {
               </span>
             </h1>
 
-            <p className="home-tagline reveal r-fade">{c.tagline}</p>
+            <p className="home-tagline reveal" data-reveal="fade">
+              {c.tagline}
+            </p>
 
             <RoleRotor alsoA={c.alsoA} roles={c.roles} />
 
-            <div className="home-actions reveal r-fade">
+            <div className="home-actions reveal" data-reveal="fade">
               <button
                 type="button"
                 className="btn btn-primary focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:outline-none"
@@ -271,7 +275,7 @@ export default function HomeView({ navigate }: HomeViewProps) {
           </div>
 
           {/* Avatar column */}
-          <div className="avatar-col reveal r-right">
+          <div className="avatar-col reveal" data-reveal="right">
             <div className="avatar-frame">
               <img src={profileSrc} alt={c.avatarAlt} />
               <span className="avatar-ring" aria-hidden="true" />
@@ -297,11 +301,15 @@ export default function HomeView({ navigate }: HomeViewProps) {
             </div>
           </div>
 
-          <div className="stats-grid reveal">
+          <div className="stats-grid reveal" ref={statsRef}>
             {c.stats.map((stat, i) => (
               <div key={i} className="stat-tile">
                 <div className="stat-n">
-                  <CountUp to={stat.n} suffix={stat.suffix} inView />
+                  <CountUp
+                    to={stat.n}
+                    suffix={stat.suffix}
+                    inView={statsInView}
+                  />
                 </div>
                 <div className="stat-label">{stat.label}</div>
               </div>
