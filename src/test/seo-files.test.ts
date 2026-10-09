@@ -27,7 +27,7 @@ describe('public/sitemap.xml', () => {
   })
 
   it('lists the site and the CV PDF', () => {
-    const locs = [...doc.getElementsByTagName('loc')].map(
+    const locs = Array.from(doc.getElementsByTagName('loc')).map(
       (el) => el.textContent,
     )
     expect(locs).toEqual([SITE_URL, CV_URL])
