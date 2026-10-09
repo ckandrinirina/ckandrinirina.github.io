@@ -8,7 +8,13 @@
  */
 
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { render, screen, fireEvent, within } from '@testing-library/react'
+import {
+  render,
+  screen,
+  fireEvent,
+  within,
+  waitFor,
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
 import { ThemeProvider } from './theme/ThemeProvider'
@@ -65,6 +71,25 @@ describe('App shell structure', () => {
     const view = container.querySelector('.view')
     expect(view).not.toBeNull()
     expect(view!.className).toMatch(/view-enter-(down|up)/)
+  })
+})
+
+describe('Scroll progress', () => {
+  // AC: the Topbar bar tracks the same .view-inner the navigation hooks read.
+  it('fills the topbar bar from the active view scroll position', async () => {
+    const { container } = renderApp()
+    const view = viewInner(container)
+    Object.defineProperty(view, 'scrollHeight', { value: 1000 })
+    Object.defineProperty(view, 'clientHeight', { value: 500 })
+
+    view.scrollTop = 250
+    fireEvent.scroll(view)
+
+    await waitFor(() =>
+      expect(screen.getByTestId('scroll-progress-bar')).toHaveStyle({
+        transform: 'scaleX(0.5)',
+      }),
+    )
   })
 })
 

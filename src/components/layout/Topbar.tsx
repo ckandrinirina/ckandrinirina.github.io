@@ -4,6 +4,7 @@
  * Renders:
  *  - Breadcrumb for the active route (sourced from ROUTE_META)
  *  - ⌘K button that calls the supplied onOpenCmdK callback
+ *  - Decorative scroll-progress bar along the bottom edge
  *  - TNR (UTC+3) clock that auto-updates every 30 s; cleaned up on unmount
  *
  * Props, not global state: Topbar is presentational and prop-driven.
@@ -14,10 +15,12 @@
  */
 
 import { useEffect, useState } from 'react'
+import type { RefObject } from 'react'
 import type { RouteId } from '../../lib/constants'
 import { ROUTE_META } from '../../lib/constants'
 import ThemeSwitcher from '../ui/ThemeSwitcher'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
+import ScrollProgress from '../ui/ScrollProgress'
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -39,13 +42,15 @@ function getTnrTime(): string {
 export type TopbarProps = {
   /** Currently active route id. */
   route: string
+  /** The active view's scroll container, read by the scroll-progress bar. */
+  viewRef: RefObject<HTMLElement | null>
   /** Called when the user activates the ⌘K button. */
   onOpenCmdK: () => void
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function Topbar({ route, onOpenCmdK }: TopbarProps) {
+export default function Topbar({ route, viewRef, onOpenCmdK }: TopbarProps) {
   const [clock, setClock] = useState<string>(getTnrTime)
 
   /* Start a 30 s interval to keep the clock current.
@@ -90,6 +95,9 @@ export default function Topbar({ route, onOpenCmdK }: TopbarProps) {
       <div className="tb-clock" data-testid="tb-clock">
         {clock} TNR
       </div>
+
+      {/* Scroll progress (decorative, bottom edge) ------------------------- */}
+      <ScrollProgress viewRef={viewRef} route={route} />
     </div>
   )
 }
