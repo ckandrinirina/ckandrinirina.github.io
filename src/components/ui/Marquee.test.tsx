@@ -25,14 +25,14 @@ describe('Marquee', () => {
       expect(container.firstChild).toHaveClass('marquee')
     })
 
-    // BUG-20260602-01: the marquee must carry the scroll-reveal classes so it
-    // fades in on entrance like the rest of the home view (reference app.jsx:645
-    // — `<div className="marquee reveal r-fade">`). Without them the marquee
-    // pops in instantly while every sibling fades — a visibly missing animation.
-    it('applies reveal + r-fade so the marquee fades in on scroll-reveal', () => {
+    // BUG-20260602-01: the marquee must carry the scroll-reveal hook so it
+    // fades in on entrance like the rest of the home view. It uses the
+    // `data-reveal` vocabulary rather than the superseded `.r-fade` class.
+    it('opts into the fade reveal variant via data-reveal', () => {
       const { container } = render(<Marquee items={items} />)
       expect(container.firstChild).toHaveClass('reveal')
-      expect(container.firstChild).toHaveClass('r-fade')
+      expect(container.firstChild).toHaveAttribute('data-reveal', 'fade')
+      expect(container.firstChild).not.toHaveClass('r-fade')
     })
 
     it('applies marquee-track class to the scrolling track', () => {

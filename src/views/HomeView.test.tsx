@@ -320,6 +320,84 @@ describe('HomeView — Stats grid', () => {
 })
 
 // ---------------------------------------------------------------------------
+// Scroll-triggered count-up (useInView)
+// ---------------------------------------------------------------------------
+
+describe('HomeView — stats count up on scroll-in', () => {
+  const realObserver = globalThis.IntersectionObserver
+  const observers: { cb: IntersectionObserverCallback; els: Element[] }[] = []
+
+  beforeEach(() => {
+    vi.useFakeTimers()
+    observers.length = 0
+    class CapturingObserver {
+      private record: (typeof observers)[number]
+      constructor(cb: IntersectionObserverCallback) {
+        this.record = { cb, els: [] }
+        observers.push(this.record)
+      }
+      observe = (el: Element) => {
+        this.record.els.push(el)
+      }
+      unobserve = vi.fn()
+      disconnect = vi.fn()
+    }
+    vi.stubGlobal('IntersectionObserver', CapturingObserver)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.stubGlobal('IntersectionObserver', realObserver)
+  })
+
+  const statTexts = () =>
+    Array.from(document.querySelectorAll('.stat-n')).map((n) => n.textContent)
+
+  it('holds the stats at 0 until the grid enters the viewport, then counts to the target', () => {
+    const { container } = renderHomeView()
+    const grid = container.querySelector('.stats-grid')!
+
+    act(() => {
+      vi.runAllTimers()
+    })
+    expect(statTexts().every((t) => t?.startsWith('0'))).toBe(true)
+
+    const watcher = observers.find((o) => o.els.includes(grid))!
+    act(() => {
+      watcher.cb(
+        [{ isIntersecting: true, target: grid } as IntersectionObserverEntry],
+        {} as IntersectionObserver,
+      )
+      vi.runAllTimers()
+    })
+    expect(statTexts()[0]).toBe('7+')
+  })
+})
+
+describe('HomeView — reveal variants use data-reveal', () => {
+  it('fades the hero blocks and slides the avatar in via data-reveal', () => {
+    const { container } = renderHomeView()
+    for (const sel of [
+      '.home-greet',
+      '.home-tagline',
+      '.home-roles',
+      '.home-actions',
+      '.marquee',
+    ]) {
+      expect(container.querySelector(sel)).toHaveAttribute(
+        'data-reveal',
+        'fade',
+      )
+    }
+    expect(container.querySelector('.avatar-col')).toHaveAttribute(
+      'data-reveal',
+      'right',
+    )
+    expect(container.querySelector('[class*="r-fade"], .r-right')).toBeNull()
+  })
+})
+
+// ---------------------------------------------------------------------------
 // Marquee
 // ---------------------------------------------------------------------------
 
