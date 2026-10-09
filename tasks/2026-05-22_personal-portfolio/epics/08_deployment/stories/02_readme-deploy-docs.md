@@ -2,7 +2,7 @@
 id: 08-02
 title: "README + Pages setup docs"
 epic: 08
-status: todo
+status: in-progress
 size: S
 blocked_by: ["08-01"]
 files: ["README.md"]
