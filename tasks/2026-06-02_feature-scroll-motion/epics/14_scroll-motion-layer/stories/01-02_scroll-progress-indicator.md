@@ -7,8 +7,8 @@ size: M
 blocked_by: []
 files: [src/App.test.tsx, src/App.tsx, src/components/layout/Topbar.test.tsx, src/components/layout/Topbar.tsx, src/components/ui/ScrollProgress.test.tsx, src/components/ui/ScrollProgress.tsx, src/hooks/useScrollProgress.test.ts, src/hooks/useScrollProgress.ts, src/index.css, src/test/scroll-progress-css.test.ts]
 issue:
-pr:
-delivery:
+pr: 19
+delivery: pr
 prior_status:
 ---
 # Story 01-02: Scroll-progress indicator (`useScrollProgress` + `ScrollProgress`)

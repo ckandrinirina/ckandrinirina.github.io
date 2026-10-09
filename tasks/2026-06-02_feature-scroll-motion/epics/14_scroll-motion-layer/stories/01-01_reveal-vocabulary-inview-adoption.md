@@ -7,8 +7,8 @@ size: M
 blocked_by: []
 files: [src/components/ui/Marquee.test.tsx, src/components/ui/Marquee.tsx, src/hooks/useInView.test.tsx, src/hooks/useInView.ts, src/hooks/useReveal.ts, src/hooks/useScrollReveal.test.ts, src/hooks/useScrollReveal.ts, src/index.css, src/test/reveal-variants.test.ts, src/views/ExperienceView.test.tsx, src/views/ExperienceView.tsx, src/views/HomeView.test.tsx, src/views/HomeView.tsx, src/views/SkillsView.test.tsx, src/views/SkillsView.tsx]
 issue:
-pr:
-delivery:
+pr: 19
+delivery: pr
 prior_status:
 ---
 # Story 01-01: Reveal vocabulary, `useInView` & site-wide view adoption
