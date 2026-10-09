@@ -22,11 +22,7 @@ export const SITE_META = {
   whatsapp: 'https://wa.me/261385096664',
 } as const satisfies SiteMeta
 
-/**
- * Social media profile URLs.
- * GitHub and LinkedIn are marked as [TO BE DEFINED] placeholders.
- * TODO: replace with actual URLs when available.
- */
+/** Social media profile URLs. */
 
 interface SocialLinks {
   github: string
@@ -34,8 +30,8 @@ interface SocialLinks {
 }
 
 export const SOCIAL_LINKS = {
-  github: '', // TODO: replace with actual URL
-  linkedin: '', // TODO: replace with actual URL
+  github: 'https://github.com/ckandrinirina',
+  linkedin: 'https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/',
 } as const satisfies SocialLinks
 
 /**

@@ -8,7 +8,7 @@ blocked_by: ["10-01", "10-02", "10-03"]
 files: ["src/components/layout/Sidebar.tsx", "src/components/layout/Topbar.tsx", "src/lib/constants.ts", "src/components/layout/*.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-03: Layout chrome — Sidebar + Topbar

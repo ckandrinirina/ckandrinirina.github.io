@@ -19,6 +19,7 @@
 import { useState, useCallback } from 'react'
 import { useLanguage } from '../i18n/useLanguage'
 import type { ContactMetaRow } from '../content/types'
+import DownloadCvButton from '../components/ui/DownloadCvButton'
 
 const COPIED_DURATION_MS = 1400
 
@@ -137,6 +138,9 @@ export default function ContactView() {
           <div className="row">
             <div className="key">{t('navLanguages')}</div>
             <div className="val">{content.contact.languages.join(' · ')}</div>
+          </div>
+          <div className="row" style={{ justifyContent: 'flex-end' }}>
+            <DownloadCvButton />
           </div>
         </div>
 

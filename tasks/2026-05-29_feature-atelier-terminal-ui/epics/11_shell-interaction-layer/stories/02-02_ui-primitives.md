@@ -8,7 +8,7 @@ blocked_by: ["10-01"]
 files: ["src/components/ui/Reveal.tsx", "src/components/ui/CountUp.tsx", "src/components/ui/Marquee.tsx", "src/components/ui/ScrollHint.tsx", "src/components/ui/Button.tsx", "src/components/ui/*.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-02: UI primitives — Reveal, CountUp, Marquee, ScrollHint, Button

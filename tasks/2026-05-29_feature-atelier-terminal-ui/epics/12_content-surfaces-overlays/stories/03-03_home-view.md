@@ -7,8 +7,8 @@ size: M
 blocked_by: ["10-01", "10-03", "11-02"]
 files: ["src/views/HomeView.tsx", "src/views/HomeView.test.tsx"]
 issue:
-pr:
-delivery:
+pr: 17
+delivery: pr
 prior_status:
 ---
 # Story 03-03: HomeView — hero, rotor, avatar, now-card, stats, marquee

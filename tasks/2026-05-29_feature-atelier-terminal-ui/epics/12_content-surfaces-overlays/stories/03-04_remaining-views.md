@@ -7,8 +7,8 @@ size: M
 blocked_by: ["10-01", "10-03", "11-02"]
 files: ["src/views/ExperienceView.tsx", "src/views/SkillsView.tsx", "src/views/ProcessView.tsx", "src/views/ContactView.tsx", "src/views/*.test.tsx"]
 issue:
-pr:
-delivery:
+pr: 17
+delivery: pr
 prior_status:
 ---
 # Story 03-04: Remaining views — Experience, Skills, Process, Contact

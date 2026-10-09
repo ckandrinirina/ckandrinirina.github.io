@@ -10,6 +10,7 @@
 // - Localisation de contact : ville et pays uniquement, jamais l'adresse complète.
 
 import type { PortfolioContent } from './types'
+import { SOCIAL_LINKS } from '../lib/constants'
 
 export default {
   // ─── HERO ────────────────────────────────────────────────────────────────────
@@ -525,6 +526,16 @@ export default {
         href: 'https://wa.me/261385096664',
         copy: true,
         copyValue: '+261385096664',
+      },
+      {
+        label: 'GitHub',
+        value: 'github.com/ckandrinirina',
+        href: SOCIAL_LINKS.github,
+      },
+      {
+        label: 'LinkedIn',
+        value: 'linkedin.com/in/andrinirina-erick',
+        href: SOCIAL_LINKS.linkedin,
       },
       {
         label: 'Basé à',

@@ -1,7 +1,7 @@
 ---
 slug: atelier-terminal-ui
 title: Atelier Terminal UI
-integration: story
+integration: epic
 branch:
 issue:
 pr:
