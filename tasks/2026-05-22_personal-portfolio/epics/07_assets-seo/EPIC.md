@@ -5,7 +5,7 @@ title: "Assets, SEO & Social Sharing"
 description: "This epic provides the static brand assets and document-level metadata that make the portfolio both downloadable and discoverable."
 issue:
 pr: 18
-delivery: pr
+delivery: merged
 ---
 # Epic 07: Assets, SEO & Social Sharing
 

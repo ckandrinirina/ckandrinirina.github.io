@@ -2,7 +2,7 @@
 id: 14-01
 title: "Reveal vocabulary, `useInView` & site-wide view adoption"
 epic: 14
-status: todo
+status: in-progress
 size: M
 blocked_by: []
 files: ["src/hooks/useInView.ts", "src/hooks/useInView.test.ts", "src/hooks/useScrollReveal.ts", "src/index.css", "src/components/ui/Marquee.tsx", "src/views/HomeView.tsx", "src/views/ExperienceView.tsx", "src/views/SkillsView.tsx", "src/hooks/useScrollReveal.test.ts"]

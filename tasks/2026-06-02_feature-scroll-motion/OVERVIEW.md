@@ -1,7 +1,7 @@
 ---
 slug: scroll-motion
 title: Scroll Motion
-integration: story
+integration: epic
 branch:
 issue:
 pr:
