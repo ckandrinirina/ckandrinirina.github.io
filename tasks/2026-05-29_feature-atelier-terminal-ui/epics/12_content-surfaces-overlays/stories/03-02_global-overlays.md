@@ -8,7 +8,7 @@ blocked_by: ["10-01", "10-03", "11-01"]
 files: ["src/components/cmdk/CommandPalette.tsx", "src/components/cmdk/commands.ts", "src/components/cursor/Cursor.tsx", "src/components/cmdk/*.test.tsx", "src/components/cursor/Cursor.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 03-02: Global overlays — CommandPalette + Cursor

@@ -2,7 +2,7 @@
 id: 12-05
 title: "GitHub, LinkedIn and Download CV on the Page"
 epic: 12
-status: todo
+status: in-progress
 size: S
 blocked_by: []
 files: ["src/lib/constants.ts", "src/content/fr.ts", "src/content/en.ts", "src/views/ContactView.tsx", "src/views/HomeView.tsx", "src/lib/constants.test.ts", "src/views/ContactView.test.tsx", "src/views/HomeView.test.tsx"]

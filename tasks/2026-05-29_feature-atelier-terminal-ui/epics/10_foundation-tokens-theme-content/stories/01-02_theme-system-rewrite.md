@@ -8,7 +8,7 @@ blocked_by: ["10-01"]
 files: ["src/theme/ThemeProvider.tsx", "src/theme/useTheme.ts", "src/theme/themeBootstrap.ts", "index.html", "src/components/ui/ThemeSwitcher.tsx", "src/components/ui/ThemeToggle.tsx", "src/components/ui/ThemeToggle.test.tsx"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-02: Theme system rewrite — 4 palettes, data-theme, switcher

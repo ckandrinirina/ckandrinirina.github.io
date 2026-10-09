@@ -8,7 +8,7 @@ blocked_by: ["10-01"]
 files: ["src/content/types.ts", "src/content/projects.ts", "src/content/fr.ts", "src/content/en.ts", "src/i18n/ui.ts", "src/content/*.test.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-03: Content model update — types, projects, FR/EN, UI labels

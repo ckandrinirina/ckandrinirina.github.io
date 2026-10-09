@@ -8,7 +8,7 @@ blocked_by: []
 files: ["src/hooks/useHashRoute.ts", "src/hooks/useScrollToNavigate.ts", "src/hooks/useKeyboardArrows.ts", "src/hooks/useCmdK.ts", "src/hooks/useScrollReveal.ts", "src/hooks/*.test.ts", "src/hooks/useScrollSpy.ts", "src/hooks/useScrollSpy.test.ts"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 02-01: Routing & interaction hooks

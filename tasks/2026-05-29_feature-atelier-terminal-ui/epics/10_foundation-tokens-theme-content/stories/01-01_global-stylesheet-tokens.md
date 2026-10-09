@@ -8,7 +8,7 @@ blocked_by: []
 files: ["src/index.css", "index.html"]
 issue:
 pr:
-delivery:
+delivery: direct
 prior_status:
 ---
 # Story 01-01: Global stylesheet rewrite — 4-theme tokens, classes, fonts
