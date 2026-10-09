@@ -4,8 +4,8 @@ slug: assets-seo
 title: "Assets, SEO & Social Sharing"
 description: "This epic provides the static brand assets and document-level metadata that make the portfolio both downloadable and discoverable."
 issue:
-pr:
-delivery:
+pr: 18
+delivery: pr
 ---
 # Epic 07: Assets, SEO & Social Sharing
 

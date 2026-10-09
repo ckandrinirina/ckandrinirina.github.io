@@ -7,8 +7,8 @@ size: M
 blocked_by: []
 files: [index.html, public/robots.txt, public/sitemap.xml, src/test/index-html.test.ts, src/test/seo-files.test.ts]
 issue:
-pr:
-delivery:
+pr: 18
+delivery: pr
 prior_status:
 ---
 
