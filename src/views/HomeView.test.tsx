@@ -153,13 +153,24 @@ describe('HomeView — Role rotor', () => {
 // ---------------------------------------------------------------------------
 
 describe('HomeView — CTAs', () => {
-  it('renders the two CTA buttons in .home-actions', () => {
+  it('renders the two navigation CTAs and the CV download in .home-actions', () => {
     renderHomeView()
     const actions = document.querySelector('.home-actions')
     expect(actions).toBeInTheDocument()
-    // Reference hero has exactly two CTAs: "See selected work" + "Get in touch".
-    const btns = actions?.querySelectorAll('button, a')
-    expect(btns?.length).toBe(2)
+    expect(actions?.querySelectorAll('button').length).toBe(2)
+    expect(actions?.querySelectorAll('a[download]').length).toBe(1)
+  })
+
+  it.each([
+    ['fr', 'Télécharger le CV'],
+    ['en', 'Download CV'],
+  ])('shows a downloadable CV link beside the CTAs in %s', (locale, label) => {
+    localStorage.setItem('locale', locale)
+    renderHomeView()
+    const link = screen.getByRole('link', { name: label })
+    expect(link.getAttribute('href')).toMatch(/cv\/erick-andrinirina-cv\.pdf$/)
+    expect(link).toHaveAttribute('download')
+    expect(link.closest('.home-actions')).not.toBeNull()
   })
 
   it('calls navigate("work") when the primary CTA ("See selected work") is clicked', () => {

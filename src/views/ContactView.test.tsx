@@ -128,6 +128,43 @@ describe('ContactView — key/value card content', () => {
 })
 
 // ---------------------------------------------------------------------------
+// Social profiles and CV download
+// ---------------------------------------------------------------------------
+
+describe('ContactView — social profiles and CV', () => {
+  it.each(['fr', 'en'])(
+    'links GitHub and LinkedIn in a new tab in %s',
+    (locale) => {
+      localStorage.setItem('locale', locale)
+      const { container } = renderContact()
+      const card = container.querySelector('.contact-card') as HTMLElement
+      const github = card.querySelector(
+        'a[href="https://github.com/ckandrinirina"]',
+      )
+      const linkedin = card.querySelector(
+        'a[href="https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/"]',
+      )
+      for (const link of [github, linkedin]) {
+        expect(link).not.toBeNull()
+        expect(link).toHaveAttribute('target', '_blank')
+        expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+      }
+    },
+  )
+
+  it.each([
+    ['fr', 'Télécharger le CV'],
+    ['en', 'Download CV'],
+  ])('offers a downloadable CV link in %s', (locale, label) => {
+    localStorage.setItem('locale', locale)
+    renderContact()
+    const link = screen.getByRole('link', { name: label })
+    expect(link.getAttribute('href')).toMatch(/cv\/erick-andrinirina-cv\.pdf$/)
+    expect(link).toHaveAttribute('download')
+  })
+})
+
+// ---------------------------------------------------------------------------
 // Pitch card
 // ---------------------------------------------------------------------------
 

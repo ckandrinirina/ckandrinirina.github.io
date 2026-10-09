@@ -38,14 +38,14 @@ describe('SITE_META constant', () => {
 })
 
 describe('SOCIAL_LINKS constant', () => {
-  it('exports github field as empty string', () => {
-    expect(SOCIAL_LINKS).toHaveProperty('github')
-    expect(SOCIAL_LINKS.github).toBe('')
+  it('exports the GitHub profile URL', () => {
+    expect(SOCIAL_LINKS.github).toBe('https://github.com/ckandrinirina')
   })
 
-  it('exports linkedin field as empty string', () => {
-    expect(SOCIAL_LINKS).toHaveProperty('linkedin')
-    expect(SOCIAL_LINKS.linkedin).toBe('')
+  it('exports the LinkedIn profile URL', () => {
+    expect(SOCIAL_LINKS.linkedin).toBe(
+      'https://www.linkedin.com/in/andrinirina-erick-2aa6b0184/',
+    )
   })
 })
 
