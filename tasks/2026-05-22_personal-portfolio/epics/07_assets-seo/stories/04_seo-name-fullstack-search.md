@@ -2,10 +2,10 @@
 id: 07-04
 title: "SEO for Name and Fullstack Developer Searches"
 epic: 07
-status: in-progress
+status: done
 size: M
 blocked_by: []
-files: ["index.html", "public/robots.txt", "public/sitemap.xml", "src/test/index-html.test.ts", "src/test/seo-files.test.ts"]
+files: [index.html, public/robots.txt, public/sitemap.xml, src/test/index-html.test.ts, src/test/seo-files.test.ts]
 issue:
 pr:
 delivery:
