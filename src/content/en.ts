@@ -10,6 +10,7 @@
 //
 // No JSX, no Tailwind classes, no logic — data only.
 import type { PortfolioContent } from './types'
+import { SOCIAL_LINKS } from '../lib/constants'
 
 export default {
   hero: {
@@ -443,6 +444,16 @@ export default {
         href: 'https://wa.me/261385096664',
         copy: true,
         copyValue: '+261385096664',
+      },
+      {
+        label: 'GitHub',
+        value: 'github.com/ckandrinirina',
+        href: SOCIAL_LINKS.github,
+      },
+      {
+        label: 'LinkedIn',
+        value: 'linkedin.com/in/andrinirina-erick',
+        href: SOCIAL_LINKS.linkedin,
       },
       {
         label: 'Based in',

@@ -23,6 +23,7 @@ import { useLanguage } from '../i18n/useLanguage'
 import Reveal from '../components/ui/Reveal'
 import CountUp from '../components/ui/CountUp'
 import Marquee from '../components/ui/Marquee'
+import DownloadCvButton from '../components/ui/DownloadCvButton'
 
 // ---------------------------------------------------------------------------
 // Types
@@ -265,6 +266,7 @@ export default function HomeView({ navigate }: HomeViewProps) {
                   ↗
                 </span>
               </button>
+              <DownloadCvButton />
             </div>
           </div>
 
