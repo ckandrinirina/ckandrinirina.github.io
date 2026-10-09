@@ -8,7 +8,7 @@ blocked_by: []
 files: [index.html, public/robots.txt, public/sitemap.xml, src/test/index-html.test.ts, src/test/seo-files.test.ts]
 issue:
 pr: 18
-delivery: pr
+delivery: merged
 prior_status:
 ---
 

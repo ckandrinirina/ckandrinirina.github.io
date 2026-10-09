@@ -129,3 +129,12 @@ describe('ExperienceView — scroll-reveal classes', () => {
     expect(items.length).toBeGreaterThan(0)
   })
 })
+
+describe('ExperienceView — title reveal', () => {
+  it('blurs the section title in via data-reveal', () => {
+    const { container } = renderExperience()
+    const title = container.querySelector('h2.section-title')
+    expect(title).toHaveClass('reveal')
+    expect(title).toHaveAttribute('data-reveal', 'blur')
+  })
+})

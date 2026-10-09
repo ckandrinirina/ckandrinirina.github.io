@@ -222,7 +222,7 @@ function App() {
         <Sidebar route={route} navigate={navigate} onOpenCmdK={openCmd} />
 
         <main className="flex min-w-0 flex-col overflow-hidden">
-          <Topbar route={route} onOpenCmdK={openCmd} />
+          <Topbar route={route} viewRef={viewRef} onOpenCmdK={openCmd} />
 
           {/* Re-keyed so React remounts → the view-enter keyframe replays and a
               fresh .view-inner starts at scrollTop 0. */}

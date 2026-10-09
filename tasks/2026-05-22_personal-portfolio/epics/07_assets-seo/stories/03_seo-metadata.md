@@ -8,7 +8,7 @@ blocked_by: ["07-02"]
 files: ["index.html"]
 issue:
 pr: 18
-delivery: pr
+delivery: merged
 prior_status:
 ---
 # Story 07-03: index.html SEO metadata

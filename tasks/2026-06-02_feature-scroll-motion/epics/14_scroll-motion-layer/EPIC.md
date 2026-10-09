@@ -4,8 +4,8 @@ slug: scroll-motion
 title: "Scroll Motion Layer"
 description: "Deliver the cross-view **motion layer** designed in `features/scroll-motion/index.md`: a zero-dependency, reduced-motion-gated enhancement to how content arrives across all six route views."
 issue:
-pr:
-delivery:
+pr: 19
+delivery: pr
 ---
 # Epic 01: Scroll Motion Layer
 

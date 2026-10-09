@@ -37,7 +37,7 @@ export default function Marquee({ items }: Props) {
     ))
 
   return (
-    <div className="marquee reveal r-fade" aria-hidden="true">
+    <div className="marquee reveal" data-reveal="fade" aria-hidden="true">
       <div className="marquee-track">
         {renderSet(false)}
         {/* Duplicate set for a seamless -50% loop. */}

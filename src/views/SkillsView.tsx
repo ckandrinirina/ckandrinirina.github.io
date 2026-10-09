@@ -9,10 +9,13 @@
  * of solid accent pills, and an `.other-list` of outlined pills.
  *
  * Reads `content.skillCards` + header labels from useLanguage(). Each
- * `.skill-card` is targeted by useScrollReveal and carries a `stg-N` stagger.
+ * `.skill-card` is targeted by useScrollReveal and carries a `stg-N` stagger;
+ * its tool count ticks up (CountUp via useInView) as the card scrolls into view.
  */
 
 import { useLanguage } from '../i18n/useLanguage'
+import CountUp from '../components/ui/CountUp'
+import { useInView } from '../hooks/useInView'
 import type { SkillCard } from '../content/types'
 
 // ---------------------------------------------------------------------------
@@ -23,16 +26,24 @@ type SkillCardItemProps = {
   card: SkillCard
   /** 1-based stagger position. */
   stagger: number
-  /** Localised "{n} tools" count label, already interpolated. */
-  countLabel: string
+  /** Localised noun after the tool count (e.g. "tools"). */
+  toolsLabel: string
 }
 
-function SkillCardItem({ card, stagger, countLabel }: SkillCardItemProps) {
+function SkillCardItem({ card, stagger, toolsLabel }: SkillCardItemProps) {
+  const [countRef, inView] = useInView<HTMLSpanElement>()
+  const total = card.lead.length + card.items.length
+
   return (
     <div className={`skill-card stg-${stagger}`} data-deco={card.deco}>
       <div className="head">
         <span className="name">{card.title}</span>
-        <span className="count">{countLabel}</span>
+        <span className="count" ref={countRef}>
+          <span className="sr-only">{`${total} ${toolsLabel}`}</span>
+          <span aria-hidden="true">
+            <CountUp to={total} inView={inView} duration={800} /> {toolsLabel}
+          </span>
+        </span>
       </div>
       <div className="lead-list">
         {card.lead.map((pill) => (
@@ -58,7 +69,7 @@ export default function SkillsView() {
   return (
     <div className="view-inner">
       <p className="eyebrow">{t('eyebrowSkills')}</p>
-      <h2 className="section-title">
+      <h2 className="section-title reveal" data-reveal="blur">
         {t('skillsTitleLead')}
         <span className="mark">{t('skillsTitleMark')}</span>
         {t('skillsTitleTail')}
@@ -75,7 +86,7 @@ export default function SkillsView() {
             key={card.title}
             card={card}
             stagger={i + 1}
-            countLabel={`${card.lead.length + card.items.length} ${t('skillsToolsLabel')}`}
+            toolsLabel={t('skillsToolsLabel')}
           />
         ))}
       </div>

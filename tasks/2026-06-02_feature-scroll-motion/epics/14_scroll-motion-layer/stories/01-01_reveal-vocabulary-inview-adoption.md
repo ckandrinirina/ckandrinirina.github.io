@@ -2,13 +2,13 @@
 id: 14-01
 title: "Reveal vocabulary, `useInView` & site-wide view adoption"
 epic: 14
-status: todo
+status: done
 size: M
 blocked_by: []
-files: ["src/hooks/useInView.ts", "src/hooks/useInView.test.ts", "src/hooks/useScrollReveal.ts", "src/index.css", "src/components/ui/Marquee.tsx", "src/views/HomeView.tsx", "src/views/ExperienceView.tsx", "src/views/SkillsView.tsx", "src/hooks/useScrollReveal.test.ts"]
+files: [src/components/ui/Marquee.test.tsx, src/components/ui/Marquee.tsx, src/hooks/useInView.test.tsx, src/hooks/useInView.ts, src/hooks/useReveal.ts, src/hooks/useScrollReveal.test.ts, src/hooks/useScrollReveal.ts, src/index.css, src/test/reveal-variants.test.ts, src/views/ExperienceView.test.tsx, src/views/ExperienceView.tsx, src/views/HomeView.test.tsx, src/views/HomeView.tsx, src/views/SkillsView.test.tsx, src/views/SkillsView.tsx]
 issue:
-pr:
-delivery:
+pr: 19
+delivery: pr
 prior_status:
 ---
 # Story 01-01: Reveal vocabulary, `useInView` & site-wide view adoption
@@ -38,25 +38,25 @@ Three threads, one cohesive slice:
 
 ## Acceptance Criteria
 
-- [ ] `src/index.css` defines `.reveal[data-reveal="fade"|"blur"|"scale"|"left"|"right"|"mask"]`
+- [x] `src/index.css` defines `.reveal[data-reveal="fade"|"blur"|"scale"|"left"|"right"|"mask"]`
       with the designed pre-`.in` (from) states and natural/`inset(0)` (to) states; the default
       `.reveal` (no attribute) keeps `opacity:0; translateY(16–36px)` → natural, unchanged.
-- [ ] Each variant's transition reuses the shell's `--ease` curve and the existing reveal
+- [x] Each variant's transition reuses the shell's `--ease` curve and the existing reveal
       duration; only the animated property set differs per variant.
-- [ ] `useScrollReveal`'s `REVEAL_SELECTOR` includes `[data-reveal]`; an element carrying only
+- [x] `useScrollReveal`'s `REVEAL_SELECTOR` includes `[data-reveal]`; an element carrying only
       `class="reveal" data-reveal="blur"` receives `.in` and animates with the blur variant.
-- [ ] `src/hooks/useInView.ts` returns `[ref, inView]`; `inView` flips to `true` exactly once
+- [x] `src/hooks/useInView.ts` returns `[ref, inView]`; `inView` flips to `true` exactly once
       when the ref enters the viewport (one-shot — it does not flip back on exit) and the
       observer is disconnected on unmount.
-- [ ] Home's stats `CountUp` is driven by `useInView` (no hardcoded `inView`) and counts up only
+- [x] Home's stats `CountUp` is driven by `useInView` (no hardcoded `inView`) and counts up only
       when the stats grid scrolls into view; at least one other view (Experience or Skills)
       animates a numeric stat the same way via `useInView`.
-- [ ] All previous `.r-fade` / `.r-right` class usages (e.g. `Marquee.tsx`, `HomeView.tsx`) are
+- [x] All previous `.r-fade` / `.r-right` class usages (e.g. `Marquee.tsx`, `HomeView.tsx`) are
       replaced by the `data-reveal` attribute with no visual regression; the superseded
       `.reveal.r-*` rules are removed or left inert.
-- [ ] Under `prefers-reduced-motion: reduce`, every variant and every `useInView`-driven
+- [x] Under `prefers-reduced-motion: reduce`, every variant and every `useInView`-driven
       `CountUp` shows its final/static state immediately (no transform, blur, or tween).
-- [ ] No new runtime dependency; `npm run build` passes with no TS errors and unit tests cover
+- [x] No new runtime dependency; `npm run build` passes with no TS errors and unit tests cover
       `useInView` (including reduced-motion / one-shot behaviour) and the variant migration.
 
 ## Technical Notes
@@ -103,21 +103,21 @@ Three threads, one cohesive slice:
 
 ## Implementation Tasks
 
-1. [ ] Write `useInView` tests (one-shot fire on intersect, no flip-back, cleanup disconnects,
+1. [x] Write `useInView` tests (one-shot fire on intersect, no flip-back, cleanup disconnects,
        reduced-motion path) — RED.
-2. [ ] Implement `src/hooks/useInView.ts` as a one-shot IntersectionObserver returning
+2. [x] Implement `src/hooks/useInView.ts` as a one-shot IntersectionObserver returning
        `[ref, inView]` scoped to the active view; satisfy the tests — GREEN.
-3. [ ] Add the `.reveal[data-reveal="…"]` variant rules to `src/index.css` (six variants +
+3. [x] Add the `.reveal[data-reveal="…"]` variant rules to `src/index.css` (six variants +
        default) reusing `--ease` and the existing reveal duration; add the reduced-motion
        neutralisation block.
-4. [ ] Extend `REVEAL_SELECTOR` in `useScrollReveal.ts` with `[data-reveal]`; update its test.
-5. [ ] Migrate `.r-fade` / `.r-right` usages in `Marquee.tsx` and `HomeView.tsx` to the
+4. [x] Extend `REVEAL_SELECTOR` in `useScrollReveal.ts` with `[data-reveal]`; update its test.
+5. [x] Migrate `.r-fade` / `.r-right` usages in `Marquee.tsx` and `HomeView.tsx` to the
        `data-reveal` attribute; remove or inert the superseded `.reveal.r-*` CSS.
-6. [ ] Rewire Home's stats `CountUp` to source `inView` from `useInView`; verify it counts only
+6. [x] Rewire Home's stats `CountUp` to source `inView` from `useInView`; verify it counts only
        on scroll-in.
-7. [ ] Adopt `useInView`-driven `CountUp` and selected `data-reveal` variants in
+7. [x] Adopt `useInView`-driven `CountUp` and selected `data-reveal` variants in
        `ExperienceView.tsx` and `SkillsView.tsx` where motion improves the entrance.
-8. [ ] Run the suite + `npm run build`; verify reduced-motion parity and no visual regression on
+8. [x] Run the suite + `npm run build`; verify reduced-motion parity and no visual regression on
        default reveals.
 
 ## Dependencies
@@ -131,3 +131,26 @@ Three threads, one cohesive slice:
 - **Related stories:** 01-02 (independent; shares only non-overlapping `index.css` sections).
 - **Spec reference:** `features/scroll-motion/index.md` §Reveal vocabulary, §Hooks (`useInView`),
   §Flows (reveal-on-scroll, scroll-triggered count-up).
+
+## Unplanned Changes
+
+- src/hooks/useReveal.ts — made the hook generic over the element type — useInView wraps it and a typed ref (HTMLDivElement/HTMLSpanElement) would not type-check otherwise
+- src/hooks/useInView.test.tsx — created as `.tsx` instead of the planned `.ts` — the test renders a probe component with JSX
+- src/components/ui/Marquee.test.tsx — updated the `r-fade` assertion to `data-reveal="fade"` — the story migrates the class to the attribute
+- src/views/HomeView.test.tsx, src/views/SkillsView.test.tsx, src/views/ExperienceView.test.tsx — added coverage for the data-reveal migration and the scroll-driven count-up — acceptance criteria
+- src/test/reveal-variants.test.ts — new CSS-presence test for the variants, retired `.r-*` rules and reduced-motion block — acceptance criteria
+
+---
+
+## Implementation Summary
+
+**Completed:** 2026-10-09
+**TDD Iterations:** 5 (useInView, selector, Home/Marquee migration, CSS vocabulary, Skills/Experience adoption)
+**QA Iterations:** 1
+**Manual-test bugs:** none
+**Tests written:** 29 new tests (801 passing overall)
+**Files created:** 3
+**Files modified:** 12
+**Unplanned changes:** 5
+
+Reveal vocabulary added to `src/index.css` as `.reveal[data-reveal="fade|blur|scale|left|right|mask"]`, with the default rise unchanged and the `.reveal.r-*` classes removed. `useScrollReveal` also observes `[data-reveal]`. `useInView` returns `[ref, inView]` and wraps the existing one-shot `useReveal`, so the observer logic is not duplicated. Home stats `CountUp` and the Skills per-card tool counts are driven by `useInView`; section titles in Experience and Skills use `data-reveal="blur"`. Under reduced motion the `.reveal[data-reveal]` rule forces the final state and `useInView` reports true from mount.

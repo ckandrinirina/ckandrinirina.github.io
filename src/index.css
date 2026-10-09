@@ -467,6 +467,26 @@ body::after {
   z-index: 9;
 }
 
+/* Scroll progress — decorative bar on the topbar's bottom edge. Scales from the
+   left (transform only, no layout); useScrollProgress sets scaleX inline. */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s var(--ease);
+  will-change: transform;
+}
+
 .tb-breadcrumb {
   display: flex;
   align-items: center;
@@ -1950,7 +1970,10 @@ body::after {
   transition-delay: 720ms;
 }
 
-/* Reveal — base hidden state; .in class added by useScrollReveal */
+/* Reveal — base hidden state; .in class added by useScrollReveal.
+   The default rise below is the baseline; `data-reveal` opts an element into
+   one of the named variants (from-states only — `.in` below is the shared end
+   state, with the filter / clip-path resets alongside). */
 .reveal {
   opacity: 0;
   transform: translateY(36px) scale(0.97);
@@ -1960,25 +1983,53 @@ body::after {
   will-change: opacity, transform;
 }
 
-.reveal.r-fade {
+.reveal[data-reveal='fade'] {
   transform: none;
+  transition: opacity 0.9s var(--ease);
+  will-change: opacity;
 }
 
-.reveal.r-left {
-  transform: translateX(-36px);
+.reveal[data-reveal='blur'] {
+  transform: none;
+  filter: blur(8px);
+  transition:
+    opacity 0.9s var(--ease),
+    filter 0.9s var(--ease);
+  will-change: opacity, filter;
 }
 
-.reveal.r-right {
-  transform: translateX(36px);
+.reveal[data-reveal='scale'] {
+  transform: scale(0.96);
 }
 
-.reveal.r-scale {
-  transform: scale(0.92);
+.reveal[data-reveal='left'] {
+  transform: translateX(-24px);
+}
+
+.reveal[data-reveal='right'] {
+  transform: translateX(24px);
+}
+
+.reveal[data-reveal='mask'] {
+  transform: none;
+  clip-path: inset(100% 0 0 0);
+  transition:
+    opacity 0.9s var(--ease),
+    clip-path 0.95s var(--ease);
+  will-change: opacity, clip-path;
 }
 
 .reveal.in {
   opacity: 1;
   transform: translateY(0) translateX(0) scale(1);
+}
+
+.reveal[data-reveal='blur'].in {
+  filter: blur(0);
+}
+
+.reveal[data-reveal='mask'].in {
+  clip-path: inset(0);
 }
 
 /* Hero name letter-by-letter reveal (binds the charIn keyframe that the
@@ -2441,12 +2492,24 @@ body::after {
     transition: none;
   }
 
+  .reveal[data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+    transition: none;
+  }
+
   .view-enter,
   .view-enter-down,
   .view-enter-up {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .scroll-progress-bar {
+    transition: none;
   }
 
   .marquee-track {
